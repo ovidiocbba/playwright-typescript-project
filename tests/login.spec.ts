@@ -12,13 +12,17 @@ test.describe('Login Tests', () => {
     await loginPage.goto();
   });
 
-  test('Successful login', async ({ page }) => {
+  test('@TC-001 Successful login', {
+    tag: ['@Regression'],
+  }, async ({ page }) => {
     await loginPage.login(userName, password);
     await page.waitForURL(/\/dashboard/);
     // Expect to be redirected to dashboard.
     await expect(page).toHaveURL(/\/dashboard/);
   });
-  test('Failed Login with Incorrect Credentials', async ({ page }) => {
+  test('@TC-002 Failed Login with Incorrect Credentials', {
+    tag: ['@Regression', '@Negative'],
+  }, async ({ page }) => {
     await loginPage.login(userName, 'wrongpass');
     const actualMessage = loginPage.alertContentLabel;
     const expectMessage = 'Invalid credentials';

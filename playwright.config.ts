@@ -36,7 +36,7 @@ export default defineConfig({
     timeout: 5000,  // Maximum time to wait for `expect` conditions (like toHaveText).
   },
   use: {
-    baseURL,  // Use the dynamically set baseURL
+    baseURL,  // Use the dynamically set baseURL.
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
