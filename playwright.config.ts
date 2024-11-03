@@ -28,6 +28,7 @@ export default defineConfig({
              ['html'],
              ['junit', { outputFile: 'results.xml' }],
              ['json', { outputFile: 'results.json' }],
+             ['@estruyf/github-actions-reporter'],
              ['allure-playwright']
   ],
   
