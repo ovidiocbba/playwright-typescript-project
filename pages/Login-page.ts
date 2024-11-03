@@ -1,6 +1,4 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import baseEnv from '../utils/environmentBaseUrl';
-const env = process.env.ENV!;
 
 export class LoginPage {
   readonly page: Page;
@@ -19,7 +17,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto(baseEnv[env].home);
+    await this.page.goto('/web/index.php/auth/login');
   }
  
   async login(username: string, password: string) {

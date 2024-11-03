@@ -3,6 +3,15 @@ import baseEnvUrl from './utils/environmentBaseUrl';
 
 require('dotenv').config();
 
+const envConfig = {
+  production: baseEnvUrl.production.home,
+  staging: baseEnvUrl.staging.home,
+  test: baseEnvUrl.test.home,
+};
+
+// Define the baseURL based on the ENV variable, defaulting to 'test'
+const baseURL = envConfig[process.env.ENV as keyof typeof envConfig] || baseEnvUrl.test.home;
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
@@ -27,15 +36,7 @@ export default defineConfig({
     timeout: 5000,  // Maximum time to wait for `expect` conditions (like toHaveText).
   },
   use: {
-    // Set the baseURL dynamically based on the ENV variable.
-    // If ENV is 'production', use the production URL.
-    // If ENV is 'staging', use the staging URL.
-    // Otherwise, default to the test URL.
-    baseURL: process.env.ENV === 'production'
-    ? baseEnvUrl.production.home
-    : process.env.ENV === 'staging'
-      ? baseEnvUrl.staging.home
-      : baseEnvUrl.test.home,
+    baseURL,  // Use the dynamically set baseURL
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
