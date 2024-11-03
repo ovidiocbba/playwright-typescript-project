@@ -1,4 +1,4 @@
-# Trello Playwright Project
+# Playwright with TypeScript Project
 This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScript](https://www.typescriptlang.org/) for end-to-end testing.
 
 [allure_report]: https://ovidiocbba.github.io/playwright-typescript-project

@@ -6,6 +6,16 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
+      environment:
+        description: 'Enviroment to execute(e.g. "test or staging")'
+        type: choice
+        required: false
+        options: 
+        - test
+        - staging
+        - production
+        default: test
+
       scenarioTag:
         description: 'Scenario Tag to execute(e.g. "@TC-00001")'
         type: string
@@ -19,7 +29,7 @@ on:
         options: 
         - chromium
         - firefox
-        default: 'chromium'
+        default: chromium
 
   schedule:
     # Scheduled the execution.
@@ -27,7 +37,7 @@ on:
     # All the cron job in GitHub Actions is in UTC.
     - cron: '0 1 * * *'
 env:
-  ENV: ${{ vars.ENV }}
+  ENV: ${{ inputs.environment }}
   UI_USERNAME: ${{ secrets.UI_USERNAME }}
   UI_PASSWORD: ${{ secrets.UI_PASSWORD }}
 
@@ -72,20 +82,9 @@ jobs:
         retention-days: 7
         if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`.
 
-    - name: Deploy allure report
+    - name: SonarCloud Scan
       # Always execute this step, regardless of the success or failure of previous steps.
       if: always()
-      # Use a custom action located in the .github/actions directory to deploy the Allure report
-      uses: ./.github/actions/deploy_allure_report
-      with:
-        # Path to the directory containing Allure test results.
-        allure_results_path: ./allure-results
-        # Name of the branch to publish the report to (gh-pages for GitHub Pages)
-        publish_name_branch: gh-pages
-        # GitHub token to authenticate the action for publishing.
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
