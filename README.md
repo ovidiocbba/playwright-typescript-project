@@ -52,7 +52,7 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 git clone git@github.com:ovidiocbba/playwright-typescript-project.git
 ```
 #### 2. Install Dependencies
-Install all the required dependencies using npm. This will install Playwright, TypeScript, and other packages defined in the package.json file.
+Install all the required dependencies using npm. This will install Playwright, TypeScript, and other packages defined in the `package.json` file.
 
 ```bash
 npm install
