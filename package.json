@@ -1,0 +1,19 @@
+{
+  "name": "playwright-typescript-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test-ui-c": "npx playwright test --project=chromium --headed",
+    "test-ui-f": "npx playwright test --project=firefox --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.6",
+    "allure-playwright": "^3.0.6",
+    "dotenv": "^16.4.5"
+  }
+}
