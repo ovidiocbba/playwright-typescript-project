@@ -5,12 +5,13 @@ on:
   # Allows you to run this workflow manually from the Actions tab.
   workflow_dispatch:
     # Inputs the workflow accepts.
+    # Note: The default values(default: test) only apply when executed manually, they do not take effect when scheduled.
     inputs:
       environment:
         description: 'Enviroment to execute(e.g. "test or staging")'
         type: choice
         required: false
-        options: 
+        options:
         - test
         - staging
         - production
@@ -34,10 +35,10 @@ on:
   schedule:
     # Scheduled the execution.
     # Every day at 21:00 PM (Bolivia).
-    # All the cron job in GitHub Actions is in UTC.
+    # All the cron job in GitHub Actions is in UTC(1:00 AM).
     - cron: '0 1 * * *'
 env:
-  ENV: ${{ inputs.environment }}
+  ENV: ${{ inputs.environment || 'test' }}
   UI_USERNAME: ${{ secrets.UI_USERNAME }}
   UI_PASSWORD: ${{ secrets.UI_PASSWORD }}
 
@@ -68,10 +69,10 @@ jobs:
       run: npm ci
 
     - name: Install Playwright Browser
-      run: npx playwright install ${{ inputs.browser }}
+      run: npx playwright install ${{ inputs.browser || 'chromium'}}
 
     - name: Run Playwright tests
-      run: npx playwright test --grep '${{ inputs.scenarioTag }}' --project=${{ inputs.browser }}
+      run: npx playwright test --grep '${{ inputs.scenarioTag || '@Regression' }}' --project=${{ inputs.browser || 'chromium'}}
 
      # Upload reports.
     - uses: actions/upload-artifact@v4
