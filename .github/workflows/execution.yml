@@ -36,8 +36,8 @@ on:
     # Scheduled the execution.
     # Every day at 21:00 PM (Bolivia).
     # All the cron job in GitHub Actions is in UTC(1:00 AM).
-    #- cron: '0 1 * * *'
-    - cron: '0 16 * * *' # Execute at 12:00 PM.
+    - cron: '0 1 * * *'
+
 env:
   ENV: ${{ inputs.environment || 'test' }}
   UI_USERNAME: ${{ secrets.UI_USERNAME }}
