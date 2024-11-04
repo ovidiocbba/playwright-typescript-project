@@ -17,7 +17,7 @@ on:
         default: test
 
       scenarioTag:
-        description: 'Scenario Tag to execute(e.g. "@TC-00001")'
+        description: 'Scenario Tag to execute(e.g. "@TC-0001")'
         type: string
         required: false
         default: '@Regression'

@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import baseEnvUrl from './utils/environmentBaseUrl';
+import type { GitHubActionOptions } from '@estruyf/github-actions-reporter';
 
 require('dotenv').config();
 
@@ -28,6 +29,12 @@ export default defineConfig({
              ['html'],
              ['junit', { outputFile: 'results.xml' }],
              ['json', { outputFile: 'results.json' }],
+             ['@estruyf/github-actions-reporter', <GitHubActionOptions>{
+              title: 'Playwright with Typescript Project - Test Results',
+              useDetails: false,
+              showTags: false,
+              showError: true
+            }],
              ['allure-playwright']
   ],
   

@@ -12,7 +12,7 @@ test.describe('Login Tests', () => {
     await loginPage.goto();
   });
 
-  test('@TC-001 Successful login', {
+  test('@TC-0001 Successful login', {
     tag: ['@Regression'],
   }, async ({ page }) => {
     await loginPage.login(userName, password);
@@ -20,7 +20,7 @@ test.describe('Login Tests', () => {
     // Expect to be redirected to dashboard.
     await expect(page).toHaveURL(/\/dashboard/);
   });
-  test('@TC-002 Failed Login with Incorrect Credentials', {
+  test('@TC-0002 Failed Login with Incorrect Credentials', {
     tag: ['@Regression', '@Negative'],
   }, async ({ page }) => {
     await loginPage.login(userName, 'wrongpass');
