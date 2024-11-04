@@ -9,7 +9,7 @@ const userName = process.env.UI_USERNAME!;
 const password = process.env.UI_PASSWORD!;
 
 test('@TC-0001 Verify that a employee can be created', {
-    tag: ['@Smoke', '@Functional'],
+    tag: ['@Smoke', '@Functional', '@Regression'],
   }, async ({ page }) => {
 
   const loginPage = new LoginPage(page);
