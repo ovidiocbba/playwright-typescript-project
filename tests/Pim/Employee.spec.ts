@@ -3,6 +3,7 @@ import { LoginPage } from '../../pages/Login-page';
 import { DashboardPage} from '../../pages/Dashboard-page';
 import { EmployeeListPage } from '../../pages/Pim/EmployeeList-page';
 import { AddEmployeePage } from '../../pages/Pim/AddEmployee-page';
+import { GuidGenerator } from '../../utils/GuidGenerator'; 
 
 const userName = process.env.UI_USERNAME!;
 const password = process.env.UI_PASSWORD!;
@@ -23,7 +24,8 @@ test('@TC-0001 Verify that a employee can be created', {
 
   await employeeListPage.clickAddButton();
 
-  await addEmployeePage.addEmployee('Mary', 'Elizabeth','Smith ');
+  const guid = GuidGenerator.generateNumericGuid(10); // Generate the GUID with the specified
+  await addEmployeePage.addEmployee('Mary', 'Elizabeth','Smith', guid);
 
   const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation();
   expect(isEmployeeCreated).toBeTruthy();
