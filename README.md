@@ -67,6 +67,10 @@ Run all tests in headless mode (without a browser window):
 ```bash
 npx playwright test
 ```
+Run a test case using a tag
+```bash
+npx playwright test --grep '@TC-0001' --project=chromium --headed
+```
 Run all tests with Chrome browser:
 ```bash
 npm run test-ui-c
