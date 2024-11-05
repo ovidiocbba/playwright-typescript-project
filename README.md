@@ -151,3 +151,61 @@ List of test cases implemented in the Framework.
     <td align = 'center'>4</td>
   </tr>
 </table>
+
+## Features:
+- **Easy Installation & Execution**: Run test cases effortlessly using simple commands. E.g: 
+  ```bash
+  npm run test:ui:chrome
+  ```
+- **Capture**: Videos, screenshots, and others are captured automatically on test failures.
+- **Environment Management**: Use environment files to easily run tests across different environments.
+- **Execute Test Filtering Using Tags**: You can tag tests (e.g., @Regression, @Smoke, @Negative) and selectively execute only the required.   
+    **Tags examples**:  
+    - @Regression
+    - @Smoke
+    - @Acceptance
+    - @Functional
+    - @E2E
+    - @Negative
+    - @Boundary  
+  
+  Run tests tagged with a single tag, such as @Regression:
+  ```bash
+  npx playwright test --grep '@Regression' --project=chromium --headed
+  ```
+  Run tests tagged with either @Regression or @Smoke:
+  ```bash
+  npx playwright test --grep '@Regression|@Smoke' --project=chromium --headed
+  ```
+  Run tests that have both @Regression and @Smoke tags:
+  ```bash
+  npx playwright test --grep '@Regression' --grep '@Smoke' --project=chromium --headed
+  ```
+- **Page Object Model (POM)**: Implemented for better test structure and maintainability.
+- **Headed/Headless Mode**: Supports both headed and headless execution for Firefox and Chrome browsers.
+- **Allure Reports**: Automatically generated after test execution for clear reporting.
+  ```bash
+  npm run test:ui:allure
+  ```
+
+## GitHub Actions:
+- **Automated Execution**: Tests run automatically on every push to the main branch or when a pull request is created.
+- **Scheduled Regression Tests**: Schedule a daily regression test at 22:00 PM and deploy the Allure report.  
+  [https://ovidiocbba.github.io/playwright-typescript-project](https://ovidiocbba.github.io/playwright-typescript-project)
+
+- **Manual Execution**: Trigger test cases manually with different parameters.
+  [/actions/workflows/execution.yml](https://github.com/ovidiocbba/playwright-typescript-project/actions/workflows/execution.yml)
+
+- **Secure Secrets Management**: Use GitHub Secrets to handle sensitive data securely.  
+  **Secrets**: SONAR_TOKEN, UI_PASSWORD, UI_PASSWORD  
+- **Composite Action**: Leverage a custom composite action for deploying Allure reports.  
+  [/.github/actions/deploy_allure_report/action.yml](https://github.com/ovidiocbba/playwright-typescript-project/blob/main/.github/actions/deploy_allure_report/action.yml)
+
+- **GitHub Action Reporter**: Integration with GitHub Action reporter to display test results directly in GitHub.
+- **SonarQube Integration**: Analyze code for vulnerabilities and code smells using SonarQubeCloud integration.  
+  [https://sonarcloud.io/project/issues?id=ovidiocbba_playwright-typescript-project](https://sonarcloud.io/project/issues?issueStatuses=OPEN%2CCONFIRMED&id=ovidiocbba_playwright-typescript-project)
+- **Allure Report Deployment**: Automatically deploy Allure reports using GitHub Pages for easy access and sharing.  
+  [/actions/workflows/pages/pages-build-deployment](https://github.com/ovidiocbba/playwright-typescript-project/actions/workflows/pages/pages-build-deployment)
+
+## Contact
+For questions or feedback, reach out to ovidiocbba@hotmail.com
