@@ -71,28 +71,47 @@ Run a test case using a tag
 ```bash
 npx playwright test --grep '@TC-0001' --project=chromium --headed
 ```
-Run all tests with Chrome browser:
-```bash
-npm run test-ui-c
-```
-Run all tests with Firefox browser:
-```bash
-npm run test-ui-f
-```
 View Test Reports
 ```bash
 npx playwright show-report
 ```
 
-(Optional) Run Tests and Generate Allure Reports
+## Test Commands
+Run all tests with Chrome browser:
+```bash
+npm run test:ui:chrome
+```
+Run all tests with Chrome browser in headless mode:
+```bash
+npm run test:ui:chrome:headless
+```
+Run all tests with Firefox browser:
+```bash
+npm run test:ui:firefox
+```
+Run all tests with Firefox browser in headless mode:
+```bash
+npm run test:ui:firefox:headless
+```
+Runs the tests using the Allure reporter and generates the corresponding report.
+```bash
+npm run test:ui:allure
+```
+
+### Run Tests and Generate Allure Reports
 1. Run tests with the Allure reporter:
 ```bash
-npx playwright test --reporter=allure
+npx playwright test --reporter=allure-playwright
 ```
 2. Serve the Allure report:
 ```bash
 allure generate ./allure-results -o ./allure-report --clean
 ```
+3. Open Allure Report:
+```bash
+allure open ./allure-report
+```
+
 # Test cases
 List of test cases implemented in the Framework.
 <table>

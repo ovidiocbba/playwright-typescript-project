@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test-ui-c": "npx playwright test --project=chromium --headed",
-    "test-ui-f": "npx playwright test --project=firefox --headed"
+    "test:ui": "npx playwright test --headed && npx playwright show-report",
+    "test:ui:headless": "npx playwright test && npx playwright show-report",
+    "test:ui:chrome": "npx playwright test --project=chromium --headed && npx playwright show-report",
+    "test:ui:chrome:headless": "npx playwright test --project=chromium && npx playwright show-report",
+    "test:ui:firefox": "npx playwright test --project=firefox --headed && npx playwright show-report",
+    "test:ui:firefox:headless": "npx playwright test --project=firefox && npx playwright show-report",
+    "test:ui:allure": "npx playwright test --reporter=line,allure-playwright && allure generate ./allure-results -o ./allure-report --clean && allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
