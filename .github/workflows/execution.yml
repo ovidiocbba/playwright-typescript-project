@@ -70,10 +70,10 @@ jobs:
       # Clean install with exact versions from package-lock.json.
       run: npm ci
 
-    - name: Install Playwright Browser
+    - name: Install Playwright Browsers
       run: |
             if [[ "${{ inputs.browser }}" == "chromium-firefox" ]]; then
-              npx playwright install 'chromium firefox'
+              npx playwright install chromium firefox
             else
               npx playwright install ${{ inputs.browser || 'chromium firefox'}}
             fi
