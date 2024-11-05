@@ -81,9 +81,11 @@ jobs:
     - name: Run Playwright tests
       run: |
             if [[ "${{ inputs.browser }}" == "chromium-firefox" ]]; then
-              npx playwright test --grep '${{ inputs.scenarioTag || '@Regression' }}' --project=chromium --project=firefox
+              echo "Running tests on Chromium and Firefox"
+              npx playwright test --grep "${{ inputs.scenarioTag || '@Regression' }}" --project=chromium --project=firefox
             else
-              npx playwright test --grep '${{ inputs.scenarioTag || '@Regression' }}' --project=${{ inputs.browser || 'chromium' }}
+              echo "Running tests on ${{ inputs.browser }}"
+              npx playwright test --grep "${{ inputs.scenarioTag || '@Regression' }}" --project=${{ inputs.browser || 'chromium' }}
             fi
 
      # Upload reports.
