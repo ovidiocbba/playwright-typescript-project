@@ -75,7 +75,7 @@ jobs:
             if [[ "${{ inputs.browser }}" == "chromium-firefox" ]]; then
               npx playwright install chromium firefox
             else
-              npx playwright install ${{ inputs.browser || 'chromium firefox'}}
+              npx playwright install ${{ inputs.browser || 'chromium'}}
             fi
 
     - name: Run Playwright tests
