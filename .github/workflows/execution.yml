@@ -71,7 +71,12 @@ jobs:
       run: npm ci
 
     - name: Install Playwright Browser
-      run: npx playwright install ${{ inputs.browser || 'chromium firefox'}}
+      run: |
+            if [[ "${{ inputs.browser }}" == "chromium-firefox" ]]; then
+              npx playwright install 'chromium firefox'
+            else
+              npx playwright install ${{ inputs.browser || 'chromium firefox'}}
+            fi
 
     - name: Run Playwright tests
       run: |
