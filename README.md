@@ -158,7 +158,7 @@ List of test cases implemented in the Framework.
   npm run test:ui:chrome
   ```
 - **Capture**: Videos, screenshots, and others are captured automatically on test failures.
-- **Environment Management**: Use environment files to easily run tests across different environments. Set in`.env` file. E.g: `ENV='test'` 
+- **Environment Management**: Use environment files to easily run tests across different environments. Set in `.env` file. E.g: `ENV='test'`   
     **Enviroments examples**: 
     - test
     - staging
