@@ -122,25 +122,25 @@ List of test cases implemented in the Framework.
     <th>Tag</th>
   </tr>
   <tr>
-    <td><b>001</b></td>
+    <td><b>0001</b></td>
     <td>Verify that a user can successfully log in with valid credentials</td>
     <td><code>login</code></td>
     <td align = 'center'><code> smoke, functional</code></td>
   </tr>
   <tr>
-    <td><b>002</b></td>
+    <td><b>0002</b></td>
     <td>Verify that a user receives an error message when attempting to log in with incorrect credentials</td>
     <td><code>login</code></td>
     <td align = 'center'><code>negative</code></td>
   </tr>
   <tr>
-    <td><b>003</b></td>
+    <td><b>0003</b></td>
     <td>Verify that an employee can be created</td>
     <td><code>pim</code></td>
     <td align = 'center'><code>smoke, functional</code></td>
   </tr>
   <tr>
-    <td><b>004</b></td>
+    <td><b>0004</b></td>
     <td>Verify that an employee cannot be created when required fields are left empty</td>
     <td><code>pim</code></td>
     <td align = 'center'><code>negative</code></td>
