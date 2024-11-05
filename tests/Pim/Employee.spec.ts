@@ -8,7 +8,7 @@ import { GuidGenerator } from '../../utils/GuidGenerator';
 const userName = process.env.UI_USERNAME!;
 const password = process.env.UI_PASSWORD!;
 
-test('@TC-0001 Verify that a employee can be created', {
+test('@TC-0001 Verify that an employee can be created', {
     tag: ['@Smoke', '@Functional', '@Regression'],
   }, async ({ page }) => {
 
@@ -29,4 +29,25 @@ test('@TC-0001 Verify that a employee can be created', {
 
   const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation();
   expect(isEmployeeCreated).toBeTruthy();
+});
+
+test('@TC-0002 Verify that an employee cannot be created when required fields are left empty', {
+  tag: ['@Negative', '@Regression'],
+}, async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  const dashboardPage = new DashboardPage(page);
+  const employeeListPage = new EmployeeListPage(page);
+  const addEmployeePage = new AddEmployeePage(page);
+
+  await loginPage.goto();
+  await loginPage.login(userName, password);
+
+  await dashboardPage.clickPimMenuItem();
+
+  await employeeListPage.clickAddButton();
+
+  await addEmployeePage.addEmployee('', '','', '');
+
+  const areErrorsVisible = await addEmployeePage.verifyRequiredFields();
+  expect(areErrorsVisible).toBeTruthy();
 });
