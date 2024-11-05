@@ -30,11 +30,12 @@ on:
         options: 
         - chromium
         - firefox
+        - chromium firefox
         default: chromium
 
   schedule:
     # Scheduled the execution.
-    # Every day at 21:00 PM (Bolivia).
+    # Every day at 22:00 PM (Bolivia GTM-4).
     # All the cron job in GitHub Actions is in UTC(1:00 AM).
     - cron: '0 1 * * *'
 
@@ -70,10 +71,10 @@ jobs:
       run: npm ci
 
     - name: Install Playwright Browser
-      run: npx playwright install ${{ inputs.browser || 'chromium'}}
+      run: npx playwright install ${{ inputs.browser || 'chromium firefox'}}
 
     - name: Run Playwright tests
-      run: npx playwright test --grep '${{ inputs.scenarioTag || '@Regression' }}' --project=${{ inputs.browser || 'chromium'}}
+      run: npx playwright test --grep '${{ inputs.scenarioTag || '@Regression' }}' --project=${{ inputs.browser || 'chromium firefox'}}
 
      # Upload reports.
     - uses: actions/upload-artifact@v4
