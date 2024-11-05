@@ -12,7 +12,7 @@ test.describe('Login Tests', () => {
     await loginPage.goto();
   });
 
-  test('@TC-001 Verify that a user can successfully log in with valid credentials', {
+  test('@TC-0001 Verify that a user can successfully log in with valid credentials', {
     tag: ['@Smoke', '@Functional' ,'@Regression'],
   }, async ({ page }) => {
     await loginPage.login(config.userName, config.password);
@@ -20,7 +20,7 @@ test.describe('Login Tests', () => {
     // Expect to be redirected to dashboard.
     await expect(page).toHaveURL(/\/dashboard/);
   });
-  test('@TC-002 Verify that a user receives an error message when attempting to log in with incorrect credentials', {
+  test('@TC-0002 Verify that a user receives an error message when attempting to log in with incorrect credentials', {
     tag: ['@Negative','@Regression'],
   }, async ({ page }) => {
     await loginPage.login(config.userName, 'wrongpass');

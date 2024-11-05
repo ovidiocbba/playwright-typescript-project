@@ -74,7 +74,12 @@ jobs:
       run: npx playwright install ${{ inputs.browser || 'chromium firefox'}}
 
     - name: Run Playwright tests
-      run: npx playwright test --grep '${{ inputs.scenarioTag || '@Regression' }}' --project=${{ inputs.browser || 'chromium firefox'}}
+    
+      run: if [[ "${{ inputs.browser }}" == "chromium firefox" ]]; then
+          npx playwright test --grep '${{ inputs.scenarioTag || '@Regression' }}' --project=chromium --project=firefox
+          else
+          npx playwright test --grep '${{ inputs.scenarioTag || '@Regression' }}' --project=${{ inputs.browser || 'chromium'}}
+          fi
 
      # Upload reports.
     - uses: actions/upload-artifact@v4
