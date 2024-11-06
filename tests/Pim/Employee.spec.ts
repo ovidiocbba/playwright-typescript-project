@@ -5,6 +5,7 @@ import { EmployeeListPage } from '../../pages/Pim/EmployeeList-page';
 import { AddEmployeePage } from '../../pages/Pim/AddEmployee-page';
 import { GuidGenerator } from '../../utils/GuidGenerator'; 
 import Config from '../../utils/Config';
+import logger from '../utils/logger';
 
 test.describe('PIM', () => {
   let loginPage: LoginPage;
@@ -18,7 +19,7 @@ test.describe('PIM', () => {
     dashboardPage = new DashboardPage(page);
     employeeListPage = new EmployeeListPage(page);
     addEmployeePage = new AddEmployeePage(page);
-
+    logger.info('Starting the test');
     await loginPage.goto();
     await loginPage.login(config.userName, config.password);
 

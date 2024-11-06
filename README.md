@@ -192,6 +192,7 @@ List of test cases implemented in the Framework.
   npx playwright test --grep '@Regression' --grep '@Smoke' --project=chromium --headed
   ```
 - **Page Object Model (POM)**: Implemented for better test structure and maintainability.
+- **Logger**: Utilizes the winston library to manage logging during test execution.
 - **Headed/Headless Mode**: Supports both headed and headless execution for Firefox and Chrome browsers.
 - **Allure Reports**: Automatically generated after test execution for clear reporting.
   ```bash

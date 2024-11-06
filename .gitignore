@@ -11,3 +11,6 @@ node_modules/
 # Reports.
 /results.json
 /results.xml
+
+# Logs.
+/test-logs.log

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/Login-page';
 import Config from '../utils/Config';
-
+import logger from '../utils/logger';
 
 test.describe('Login Tests', () => {
   let loginPage: LoginPage;
@@ -10,6 +10,7 @@ test.describe('Login Tests', () => {
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
     await loginPage.goto();
+    logger.info('Starting the test');
   });
 
   test('@TC-0001 Verify that a user can successfully log in with valid credentials', {
