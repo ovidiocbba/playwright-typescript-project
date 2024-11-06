@@ -157,7 +157,13 @@ List of test cases implemented in the Framework.
   ```bash
   npm run test:ui:chrome
   ```
-- **Capture**: Videos, screenshots, and others are captured automatically on test failures.
+- **Capture**: Videos, screenshots, trace and others are captured automatically on test failures.  
+  **Steps to view the trace**:
+  1. Once the tests finish running, open the generated HTML report. 
+  2. **Navigate to the Failed Test**: In the HTML report, you’ll see a list of test results. Look for the test that failed and was retried.  
+  3. **Click on the Retry #1 Tab**: This tab will display details specific to the retried run of the test.
+  4. **View the Trace**: Once inside the '**Retry #1**' tab, under the "**Traces**" section, you will see an "**Image**" that you need to click on.
+  5. **Explore the trace**: Once the trace viewer opens, you can inspect the steps of the test('**Actions**' tab), view screenshots, details('**Metadata**' tab) network activity, and console logs.
 - **Environment Management**: Use environment files to easily run tests across different environments. Set in `.env` file. E.g: `ENV='test'`   
     **Enviroments examples**: 
     - test
