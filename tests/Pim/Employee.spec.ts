@@ -5,7 +5,7 @@ import { EmployeeListPage } from '../../pages/Pim/EmployeeList-page';
 import { AddEmployeePage } from '../../pages/Pim/AddEmployee-page';
 import { GuidGenerator } from '../../utils/GuidGenerator'; 
 import Config from '../../utils/Config';
-import logger from '../utils/logger';
+import logger from '../../utils/logger';
 
 test.describe('PIM', () => {
   let loginPage: LoginPage;

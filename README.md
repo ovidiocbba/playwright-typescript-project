@@ -111,47 +111,6 @@ allure generate ./allure-results -o ./allure-report --clean
 ```bash
 allure open ./allure-report
 ```
-
-# Test cases
-List of test cases implemented in the Framework.
-<table>
-  <tr>
-    <th>Test case</th>
-    <th>Title</th>
-    <th>Area</th>
-    <th>Tag</th>
-  </tr>
-  <tr>
-    <td><b>0001</b></td>
-    <td>Verify that a user can successfully log in with valid credentials</td>
-    <td><code>login</code></td>
-    <td align = 'center'><code> smoke, functional</code></td>
-  </tr>
-  <tr>
-    <td><b>0002</b></td>
-    <td>Verify that a user receives an error message when attempting to log in with incorrect credentials</td>
-    <td><code>login</code></td>
-    <td align = 'center'><code>negative</code></td>
-  </tr>
-  <tr>
-    <td><b>0003</b></td>
-    <td>Verify that an employee can be created</td>
-    <td><code>pim</code></td>
-    <td align = 'center'><code>smoke, functional</code></td>
-  </tr>
-  <tr>
-    <td><b>0004</b></td>
-    <td>Verify that an employee cannot be created when required fields are left empty</td>
-    <td><code>pim</code></td>
-    <td align = 'center'><code>negative</code></td>
-  </tr>
-  <!--Footer section-->
-  <tr>
-    <td align = 'center' colspan="3"><b>Total</b></td>
-    <td align = 'center'>4</td>
-  </tr>
-</table>
-
 ## Features:
 - **Easy Installation & Execution**: Run test cases effortlessly using simple commands. E.g: 
   ```bash
@@ -217,6 +176,46 @@ List of test cases implemented in the Framework.
   [https://sonarcloud.io/project/issues?id=ovidiocbba_playwright-typescript-project](https://sonarcloud.io/project/issues?issueStatuses=OPEN%2CCONFIRMED&id=ovidiocbba_playwright-typescript-project)
 - **Allure Report Deployment**: Automatically deploy Allure reports using GitHub Pages for easy access and sharing.  
   [/actions/workflows/pages/pages-build-deployment](https://github.com/ovidiocbba/playwright-typescript-project/actions/workflows/pages/pages-build-deployment)
+
+# Test cases
+List of test cases implemented in the Framework.
+<table>
+  <tr>
+    <th>Test case</th>
+    <th>Title</th>
+    <th>Area</th>
+    <th>Tag</th>
+  </tr>
+  <tr>
+    <td><b>0001</b></td>
+    <td>Verify that a user can successfully log in with valid credentials</td>
+    <td><code>login</code></td>
+    <td align = 'center'><code> smoke, functional</code></td>
+  </tr>
+  <tr>
+    <td><b>0002</b></td>
+    <td>Verify that a user receives an error message when attempting to log in with incorrect credentials</td>
+    <td><code>login</code></td>
+    <td align = 'center'><code>negative</code></td>
+  </tr>
+  <tr>
+    <td><b>0003</b></td>
+    <td>Verify that an employee can be created</td>
+    <td><code>pim</code></td>
+    <td align = 'center'><code>smoke, functional</code></td>
+  </tr>
+  <tr>
+    <td><b>0004</b></td>
+    <td>Verify that an employee cannot be created when required fields are left empty</td>
+    <td><code>pim</code></td>
+    <td align = 'center'><code>negative</code></td>
+  </tr>
+  <!--Footer section-->
+  <tr>
+    <td align = 'center' colspan="3"><b>Total</b></td>
+    <td align = 'center'>4</td>
+  </tr>
+</table>
 
 ## Contact
 For questions or feedback, reach out to ovidiocbba@hotmail.com
