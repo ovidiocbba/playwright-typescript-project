@@ -54,6 +54,9 @@ npm -v
    *Automatically checks your code for errors and style issues based on your project's ESLint rules, providing instant feedback and quick fixes as you write.*
    - **YAML**  
    *Offers syntax highlighting, validation, and autocompletion for YAML files, which are commonly used for configuration files in CI/CD pipelines.*
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
 
 ### Configuring Environment
 #### 1. Clone remote repository
@@ -76,6 +79,9 @@ Install all the required dependencies using npm. This will install Playwright, T
 ```bash
 npm install
 ```
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
 
 ## Running the tests
 
@@ -166,6 +172,10 @@ allure generate ./allure-results -o ./allure-report --clean
 ```bash
 allure open ./allure-report
 ```
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
 ## Features:
 - **Easy Installation & Execution**: Run test cases effortlessly using simple commands. E.g: 
   ```bash
@@ -212,6 +222,9 @@ allure open ./allure-report
   ```bash
   npm run test:ui:allure
   ```
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
 
 ## GitHub Actions:
 - **Automated Execution**: Tests run automatically on every push to the main branch or when a pull request is created.
