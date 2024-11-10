@@ -12,6 +12,8 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 
 # Table of contents
 - [Test Cases](TestCases.md)
+- [Features](#features)
+- [GitHub Actions](#github-actions)
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
       - [Node.js](#1-nodejs)
@@ -22,11 +24,77 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
       - [Install Dependencies](#2-install-dependencies) 
 - [Running the tests](#running-the-tests)
     - [Test Commands](#test-commands)
-- [Features](#features)
-- [GitHub Actions](#github-actions)
 - [Contact](#contact)
 ---
 
+## Features:
+- **Easy Installation & Execution**: Run test cases effortlessly using simple commands. E.g: 
+  ```bash
+  npm run test:ui:chrome
+  ```
+- **Capture**: Videos, screenshots, trace and others are captured automatically on test failures.  
+  **Steps to view the trace**:
+  1. Once the tests finish running, open the generated HTML report. 
+  2. **Navigate to the Failed Test**: In the HTML report, you’ll see a list of test results. Look for the test that failed and was retried.  
+  3. **Click on the Retry #1 Tab**: This tab will display details specific to the retried run of the test.
+  4. **View the Trace**: Once inside the '**Retry #1**' tab, under the "**Traces**" section, you will see an "**Image**" that you need to click on.
+  5. **Explore the trace**: Once the trace viewer opens, you can inspect the steps of the test('**Actions**' tab), view screenshots, details('**Metadata**' tab) network activity, and console logs.
+- **Environment Management**: Use environment files to easily run tests across different environments. Set in `.env` file. E.g: `ENV='test'`   
+    **Enviroments examples**: 
+    - test
+    - staging
+    - production
+- **Execute Test Filtering Using Tags**: You can tag tests (e.g., @Regression, @Smoke, @Negative) and selectively execute only the required.   
+    **Tags examples**:  
+    - @Regression
+    - @Smoke
+    - @Acceptance
+    - @Functional
+    - @E2E
+    - @Negative
+    - @Boundary  
+  
+  Run tests tagged with a single tag, such as @Regression:
+  ```bash
+  npx playwright test --grep '@Regression' --project=chromium --headed
+  ```
+  Run tests tagged with either @Regression or @Smoke:
+  ```bash
+  npx playwright test --grep '@Regression|@Smoke' --project=chromium --headed
+  ```
+  Run tests that have both @Regression and @Smoke tags:
+  ```bash
+  npx playwright test --grep '@Regression' --grep '@Smoke' --project=chromium --headed
+  ```
+- **Page Object Model (POM)**: Implemented for better test structure and maintainability.
+- **Logger**: Utilizes the winston library to manage logging during test execution.
+- **Headed/Headless Mode**: Supports both headed and headless execution for Firefox and Chrome browsers.
+- **Allure Reports**: Automatically generated after test execution for clear reporting.
+  ```bash
+  npm run test:ui:allure
+  ```
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
+## GitHub Actions:
+- **Automated Execution**: Tests run automatically on every push to the main branch or when a pull request is created.
+- **Scheduled Regression Tests**: Schedule a daily regression test at 22:00 PM and deploy the Allure report.  
+  [https://ovidiocbba.github.io/playwright-typescript-project](https://ovidiocbba.github.io/playwright-typescript-project)
+
+- **Manual Execution**: Trigger test cases manually with different parameters.
+  [/actions/workflows/execution.yml](https://github.com/ovidiocbba/playwright-typescript-project/actions/workflows/execution.yml)
+
+- **Secure Secrets Management**: Use GitHub Secrets to handle sensitive data securely.  
+  **Secrets**: SONAR_TOKEN, UI_PASSWORD, UI_PASSWORD  
+- **Composite Action**: Leverage a custom composite action for deploying Allure reports.  
+  [/.github/actions/deploy_allure_report/action.yml](https://github.com/ovidiocbba/playwright-typescript-project/blob/main/.github/actions/deploy_allure_report/action.yml)
+
+- **GitHub Action Reporter**: Integration with GitHub Action reporter to display test results directly in GitHub.
+- **SonarQube Integration**: Analyze code for vulnerabilities and code smells using SonarQubeCloud integration.  
+  [https://sonarcloud.io/project/issues?id=ovidiocbba_playwright-typescript-project](https://sonarcloud.io/project/issues?issueStatuses=OPEN%2CCONFIRMED&id=ovidiocbba_playwright-typescript-project)
+- **Allure Report Deployment**: Automatically deploy Allure reports using GitHub Pages for easy access and sharing.  
+  [/actions/workflows/pages/pages-build-deployment](https://github.com/ovidiocbba/playwright-typescript-project/actions/workflows/pages/pages-build-deployment)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -175,75 +243,6 @@ allure open ./allure-report
 <div align="right">
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
-
-## Features:
-- **Easy Installation & Execution**: Run test cases effortlessly using simple commands. E.g: 
-  ```bash
-  npm run test:ui:chrome
-  ```
-- **Capture**: Videos, screenshots, trace and others are captured automatically on test failures.  
-  **Steps to view the trace**:
-  1. Once the tests finish running, open the generated HTML report. 
-  2. **Navigate to the Failed Test**: In the HTML report, you’ll see a list of test results. Look for the test that failed and was retried.  
-  3. **Click on the Retry #1 Tab**: This tab will display details specific to the retried run of the test.
-  4. **View the Trace**: Once inside the '**Retry #1**' tab, under the "**Traces**" section, you will see an "**Image**" that you need to click on.
-  5. **Explore the trace**: Once the trace viewer opens, you can inspect the steps of the test('**Actions**' tab), view screenshots, details('**Metadata**' tab) network activity, and console logs.
-- **Environment Management**: Use environment files to easily run tests across different environments. Set in `.env` file. E.g: `ENV='test'`   
-    **Enviroments examples**: 
-    - test
-    - staging
-    - production
-- **Execute Test Filtering Using Tags**: You can tag tests (e.g., @Regression, @Smoke, @Negative) and selectively execute only the required.   
-    **Tags examples**:  
-    - @Regression
-    - @Smoke
-    - @Acceptance
-    - @Functional
-    - @E2E
-    - @Negative
-    - @Boundary  
-  
-  Run tests tagged with a single tag, such as @Regression:
-  ```bash
-  npx playwright test --grep '@Regression' --project=chromium --headed
-  ```
-  Run tests tagged with either @Regression or @Smoke:
-  ```bash
-  npx playwright test --grep '@Regression|@Smoke' --project=chromium --headed
-  ```
-  Run tests that have both @Regression and @Smoke tags:
-  ```bash
-  npx playwright test --grep '@Regression' --grep '@Smoke' --project=chromium --headed
-  ```
-- **Page Object Model (POM)**: Implemented for better test structure and maintainability.
-- **Logger**: Utilizes the winston library to manage logging during test execution.
-- **Headed/Headless Mode**: Supports both headed and headless execution for Firefox and Chrome browsers.
-- **Allure Reports**: Automatically generated after test execution for clear reporting.
-  ```bash
-  npm run test:ui:allure
-  ```
-<div align="right">
-    <b><a href="#table-of-contents">↥ Back to top</a></b>
-</div>
-
-## GitHub Actions:
-- **Automated Execution**: Tests run automatically on every push to the main branch or when a pull request is created.
-- **Scheduled Regression Tests**: Schedule a daily regression test at 22:00 PM and deploy the Allure report.  
-  [https://ovidiocbba.github.io/playwright-typescript-project](https://ovidiocbba.github.io/playwright-typescript-project)
-
-- **Manual Execution**: Trigger test cases manually with different parameters.
-  [/actions/workflows/execution.yml](https://github.com/ovidiocbba/playwright-typescript-project/actions/workflows/execution.yml)
-
-- **Secure Secrets Management**: Use GitHub Secrets to handle sensitive data securely.  
-  **Secrets**: SONAR_TOKEN, UI_PASSWORD, UI_PASSWORD  
-- **Composite Action**: Leverage a custom composite action for deploying Allure reports.  
-  [/.github/actions/deploy_allure_report/action.yml](https://github.com/ovidiocbba/playwright-typescript-project/blob/main/.github/actions/deploy_allure_report/action.yml)
-
-- **GitHub Action Reporter**: Integration with GitHub Action reporter to display test results directly in GitHub.
-- **SonarQube Integration**: Analyze code for vulnerabilities and code smells using SonarQubeCloud integration.  
-  [https://sonarcloud.io/project/issues?id=ovidiocbba_playwright-typescript-project](https://sonarcloud.io/project/issues?issueStatuses=OPEN%2CCONFIRMED&id=ovidiocbba_playwright-typescript-project)
-- **Allure Report Deployment**: Automatically deploy Allure reports using GitHub Pages for easy access and sharing.  
-  [/actions/workflows/pages/pages-build-deployment](https://github.com/ovidiocbba/playwright-typescript-project/actions/workflows/pages/pages-build-deployment)
 
 # Contact
 For questions or feedback, reach out to ovidiocbba@hotmail.com
