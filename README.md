@@ -11,20 +11,20 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 [View Allure Report][allure_report]
 
 # Table of contents
-- [Test Cases](TestCases.md)
-- [Features :clipboard:](#clipboard-features)
-- [GitHub Actions :robot:](#robot-github-actions)
-- [Getting Started :rocket:](#rocket-getting-started)
-    - [Prerequisites :gear:](#gear-prerequisites)
+- [:test_tube: Test Cases](TestCases.md)
+- [:clipboard: Features](#clipboard-features)
+- [:robot: GitHub Actions](#robot-github-actions)
+- [:rocket: Getting Started](#rocket-getting-started)
+    - [:gear: Prerequisites](#gear-prerequisites)
       - [Node.js](#1-nodejs)
       - [Git](#2-git)
       - [Visual Studio Code](#3-visual-studio-code)
-    - [Environment Configuration :desktop-computer:](#desktop_computer-environment-configuration)
+    - [:desktop_computer: Environment Configuration](#desktop_computer-environment-configuration)
       - [Clone remote repository](#1-clone-remote-repository)
       - [Install Dependencies](#2-install-dependencies) 
-- [Running the tests :runner:](#runner-running-the-tests)
-    - [Test Commands :zap:](#zap-test-commands)
-    - [Run Tests and Generate Allure Reports :bar-chart:](#bar_chart-run-tests-and-generate-allure-reports)
+- [:runner: Running the tests](#runner-running-the-tests)
+    - [:zap: Test Commands](#zap-test-commands)
+    - [:bar_chart: Run Tests and Generate Allure Reports](#bar_chart-run-tests-and-generate-allure-reports)
 - [Contact](#contact)
 ---
 
