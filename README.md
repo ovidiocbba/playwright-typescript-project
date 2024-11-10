@@ -95,6 +95,9 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
   [https://sonarcloud.io/project/issues?id=ovidiocbba_playwright-typescript-project](https://sonarcloud.io/project/issues?issueStatuses=OPEN%2CCONFIRMED&id=ovidiocbba_playwright-typescript-project)
 - **Allure Report Deployment**: Automatically deploy Allure reports using GitHub Pages for easy access and sharing.  
   [/actions/workflows/pages/pages-build-deployment](https://github.com/ovidiocbba/playwright-typescript-project/actions/workflows/pages/pages-build-deployment)
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -151,7 +154,7 @@ npm install
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## Running the tests
+## :rocket: Running the tests
 
 **IMPORTANT:** Please add the appropriate values for your `.env` file. 
 For example: `ENV='test'`
