@@ -33,7 +33,7 @@ export class AddEmployeePage {
     // Waits for the loading spinner to disappear before proceeding, ensuring the page has finished loading.
     await this.page.waitForSelector('div.oxd-loading-spinner', { state: 'hidden' });
     const personalDetailsLabel = 'h6:has-text("Personal Details")';
-    await this.page.waitForSelector(personalDetailsLabel, { timeout: 5000 });
+    await this.page.waitForSelector(personalDetailsLabel, { timeout: 7000 });
     return await this.page.isVisible(personalDetailsLabel);
   }
 

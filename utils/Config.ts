@@ -9,7 +9,7 @@ class Config {
   
       // Validate that required variables are set
       if (!this.userName || !this.password) {
-        throw new Error("Missing environment variables: Please set UI_USERNAME and UI_PASSWORD");
+        throw new Error('Missing environment variables: Please set UI_USERNAME and UI_PASSWORD');
       }
     }
   

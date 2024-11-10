@@ -50,7 +50,7 @@ export default defineConfig({
     viewport: { width: 1920, height: 1080 },
     // Record video with better quality.
     video: {
-      mode: "retain-on-failure",
+      mode: 'retain-on-failure',
       size: { width: 1920, height: 1080 }
     }
   },

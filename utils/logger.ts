@@ -1,10 +1,10 @@
-import { createLogger, transports, format } from "winston";
+import { createLogger, transports, format } from 'winston';
 
 // Define the log file location
-const logFile = "test-logs.log";
+const logFile = 'test-logs.log';
 
 const logger = createLogger({
-  level: "info",
+  level: 'info',
   format: format.combine(
     format.timestamp(),
     format.printf(({ timestamp, level, message }) => {
