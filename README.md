@@ -15,15 +15,16 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 - [Features](#clipboard-features)
 - [GitHub Actions](#robot-github-actions)
 - [Getting Started](#rocket-getting-started)
-    - [Prerequisites](#prerequisites)
+    - [Prerequisites](#gear-prerequisites)
       - [Node.js](#1-nodejs)
       - [Git](#2-git)
       - [Visual Studio Code](#3-visual-studio-code)
-    - [Configuring Environment](#configuring-environment)
+    - [Environment Configuration](#desktop-computer-environment-configuration)
       - [Clone remote repository](#1-clone-remote-repository)
       - [Install Dependencies](#2-install-dependencies) 
 - [Running the tests](#runner-running-the-tests)
-    - [Test Commands](#test-commands)
+    - [Test Commands](#zap-test-commands)
+    - [Run Tests and Generate Allure Reports](#bar_chart-run-tests-and-generate-allure-reports)
 - [Contact](#contact)
 ---
 
@@ -102,7 +103,7 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 ## :rocket: Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
+### :gear: Prerequisites
 
 #### 1. Node.js
 1. Ensure you have [Node.js](https://nodejs.org/en) installed (version 14 or higher).
@@ -129,7 +130,7 @@ npm -v
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-### Configuring Environment
+### :desktop_computer: Environment Configuration
 #### 1. Clone remote repository
 Git
 ##### Step1 Generate SSH Keys
@@ -172,7 +173,7 @@ View Test Reports
 npx playwright show-report
 ```
 
-### Test Commands
+### :zap: Test Commands
 <table>
   <tr>
     <th>Script Command</th>
@@ -230,7 +231,7 @@ npx playwright show-report
   </tr>
 </table>
 
-### Run Tests and Generate Allure Reports
+### :bar_chart: Run Tests and Generate Allure Reports
 1. Run tests with the Allure reporter:
 ```bash
 npx playwright test --reporter=allure-playwright
