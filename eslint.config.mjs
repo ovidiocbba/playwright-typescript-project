@@ -20,17 +20,18 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/explicit-function-return-type': 'off',
 
-       // Custom rules.
-       quotes: [ 'error', 'single', // Prefer single quotes (' ') for strings
-        {
-          'avoidEscape': true,        // Allows double quotes (" ") if needed to avoid escaping
-          'allowTemplateLiterals': true  // Allows backticks (`` ` ``) for strings, useful when interpolation is needed
-        }
-      ],
-
       // Playwright rules.
       'playwright/no-force-option': 'warn',
-      'playwright/no-wait-for-timeout': 'warn'
+      'playwright/no-wait-for-timeout': 'warn',
+
+       // Custom rules.
+       quotes: [ 'error', 'single', // Prefer single quotes (' ') for strings
+          {
+            'avoidEscape': true,        // Allows double quotes (" ") if needed to avoid escaping.
+            'allowTemplateLiterals': true  // Allows backticks (`` ` ``) for strings, useful when interpolation is needed.
+          }
+       ],
+       'eol-last': ['error', 'always'] // Add a newline at the end of each file.
     }
   }
 ];
