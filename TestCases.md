@@ -37,3 +37,6 @@ List of test cases implemented in the Framework.
     <td align = 'center'>4</td>
   </tr>
 </table>
+<div align="right">
+    <b><a href="https://github.com/ovidiocbba/playwright-typescript-project?tab=readme-ov-file#table-of-contents">↥ Back to main page</a></b>
+</div>
