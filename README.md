@@ -12,9 +12,9 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 
 # Table of contents
 - [Test Cases](TestCases.md)
-- [Features](#features)
-- [GitHub Actions](#github-actions)
-- [Getting Started](#getting-started)
+- [Features](#clipboard-features)
+- [GitHub Actions](#robot-github-actions)
+- [Getting Started](#rocket-getting-started)
     - [Prerequisites](#prerequisites)
       - [Node.js](#1-nodejs)
       - [Git](#2-git)
@@ -22,12 +22,12 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
     - [Configuring Environment](#configuring-environment)
       - [Clone remote repository](#1-clone-remote-repository)
       - [Install Dependencies](#2-install-dependencies) 
-- [Running the tests](#running-the-tests)
+- [Running the tests](#runner-running-the-tests)
     - [Test Commands](#test-commands)
 - [Contact](#contact)
 ---
 
-## Features:
+## :clipboard: Features:
 - **Easy Installation & Execution**: Run test cases effortlessly using simple commands. E.g: 
   ```bash
   npm run test:ui:chrome
@@ -77,7 +77,7 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## GitHub Actions:
+## :robot: GitHub Actions:
 - **Automated Execution**: Tests run automatically on every push to the main branch or when a pull request is created.
 - **Scheduled Regression Tests**: Schedule a daily regression test at 22:00 PM and deploy the Allure report.  
   [https://ovidiocbba.github.io/playwright-typescript-project](https://ovidiocbba.github.io/playwright-typescript-project)
@@ -99,7 +99,7 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## Getting Started
+## :rocket: Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
@@ -154,7 +154,7 @@ npm install
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## :rocket: Running the tests
+## :runner: Running the tests
 
 **IMPORTANT:** Please add the appropriate values for your `.env` file. 
 For example: `ENV='test'`
