@@ -32,7 +32,8 @@ npm -v
 3. Install the following **extensions** for Visual Studio Code:
    - **Playwright Test for VSCode**  
    *Provides integration with Playwright for running, debugging, and managing tests directly within Visual Studio Code.*
-
+   - **ESLint**  
+   *Automatically checks your code for errors and style issues based on your project's ESLint rules, providing instant feedback and quick fixes as you write.*
    - **YAML**  
    *Offers syntax highlighting, validation, and autocompletion for YAML files, which are commonly used for configuration files in CI/CD pipelines.*
 
@@ -77,26 +78,62 @@ npx playwright show-report
 ```
 
 ## Test Commands
-Run all tests with Chrome browser:
-```bash
-npm run test:ui:chrome
-```
-Run all tests with Chrome browser in headless mode:
-```bash
-npm run test:ui:chrome:headless
-```
-Run all tests with Firefox browser:
-```bash
-npm run test:ui:firefox
-```
-Run all tests with Firefox browser in headless mode:
-```bash
-npm run test:ui:firefox:headless
-```
-Runs the tests using the Allure reporter and generates the corresponding report.
-```bash
-npm run test:ui:allure
-```
+<table>
+  <tr>
+    <th>Script Command</th>
+    <th>Description</th>
+  </tr>
+  
+  <tr>
+  <td>
+
+  ```bash
+  npm run test:ui:chrome
+  ```
+  </td>
+    <td>Run all tests with Chrome browser</td>
+  </tr>
+
+  <tr>
+  <td>
+
+  ```bash
+  npm run test:ui:chrome:headless
+  ```
+  </td>
+  <td>Run all tests with Chrome browser in headless mode</td>
+  </tr>
+  
+  <tr>
+  <td>
+
+  ```bash
+  npm run test:ui:firefox
+  ```
+  </td>
+  <td>Run all tests with Firefox browser</td>
+  </tr>
+    
+  <tr>
+  <td>
+
+  ```bash
+  npm run test:ui:firefox:headless
+  ```
+  </td>
+  <td>Run all tests with Firefox browser in headless mode</td>
+  </tr>
+  
+  <tr>
+  <td>
+
+  ```bash
+  npm run test:ui:allure
+  ```
+  </td>
+    <td>Runs the tests using the Allure reporter and generates the corresponding report.</td>
+  </tr>
+</table>
 
 ### Run Tests and Generate Allure Reports
 1. Run tests with the Allure reporter:
