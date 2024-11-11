@@ -206,6 +206,10 @@ View Test Reports
 npx playwright show-report
 ```
 
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
 ### :zap: Test Commands
 
 <table>
@@ -269,6 +273,9 @@ npm run test:ui:allure
     <td>Runs the tests using the Allure reporter and generates the corresponding report.</td>
   </tr>
 </table>
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
 
 ### :bar_chart: Run Tests and Generate Allure Reports
 
