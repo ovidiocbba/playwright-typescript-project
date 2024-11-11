@@ -25,52 +25,56 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
 
-  reporter: [['list'],
-             ['html'],
-             ['junit', { outputFile: 'results.xml' }],
-             ['json', { outputFile: 'results.json' }],
-             ['@estruyf/github-actions-reporter', <GitHubActionOptions>{
-              title: 'Playwright with Typescript Project - Test Results',
-              useDetails: false,
-              showTags: false,
-              showError: true
-            }],
-             ['allure-playwright']
+  reporter: [
+    ['list'],
+    ['html'],
+    ['junit', { outputFile: 'results.xml' }],
+    ['json', { outputFile: 'results.json' }],
+    [
+      '@estruyf/github-actions-reporter',
+      <GitHubActionOptions>{
+        title: 'Playwright with Typescript Project - Test Results',
+        useDetails: false,
+        showTags: false,
+        showError: true,
+      },
+    ],
+    ['allure-playwright'],
   ],
-  
-  timeout: 20000,  // Global timeout for each test, in milliseconds.
+
+  timeout: 20000, // Global timeout for each test, in milliseconds.
   expect: {
-    timeout: 5000,  // Maximum time to wait for `expect` conditions (like toHaveText).
+    timeout: 5000, // Maximum time to wait for `expect` conditions (like toHaveText).
   },
   use: {
-    baseURL,  // Use the dynamically set baseURL.
-    trace: 'on-first-retry', // Record a trace only when retrying a test for the first time. 
+    baseURL, // Use the dynamically set baseURL.
+    trace: 'on-first-retry', // Record a trace only when retrying a test for the first time.
     screenshot: 'only-on-failure', // Screenshots only when a test fails.
     headless: true,
     viewport: { width: 1920, height: 1080 },
     // Record video with better quality.
     video: {
       mode: 'retain-on-failure',
-      size: { width: 1920, height: 1080 }
-    }
+      size: { width: 1920, height: 1080 },
+    },
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { 
+      use: {
         ...devices['Desktop Chrome'],
-        viewport: { width: 1920, height: 1080 }
-       },
+        viewport: { width: 1920, height: 1080 },
+      },
     },
 
     {
       name: 'firefox',
-      use: { 
+      use: {
         ...devices['Desktop Firefox'],
-        viewport: { width: 1920, height: 1080 }
-       },
+        viewport: { width: 1920, height: 1080 },
+      },
     },
 
     // {

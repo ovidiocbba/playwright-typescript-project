@@ -10,5 +10,5 @@ export default {
   production: {
     home: 'https://opensource-demo.orangehrmlive.production.com/',
     api: 'https://opensource-demo.orangehrmlive.production.com/api',
-  }
+  },
 };

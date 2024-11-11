@@ -10,6 +10,6 @@ export class EmployeeListPage {
   }
 
   async clickAddButton() {
-    await this.addButton.click();  
+    await this.addButton.click();
   }
 }

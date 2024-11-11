@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../pages/Login-page';
-import { DashboardPage} from '../../pages/Dashboard-page';
+import { DashboardPage } from '../../pages/Dashboard-page';
 import { EmployeeListPage } from '../../pages/Pim/EmployeeList-page';
 import { AddEmployeePage } from '../../pages/Pim/AddEmployee-page';
-import { GuidGenerator } from '../../utils/GuidGenerator'; 
+import { GuidGenerator } from '../../utils/GuidGenerator';
 import Config from '../../utils/Config';
 import logger from '../../utils/logger';
 
@@ -27,27 +27,34 @@ test.describe('PIM', () => {
     await dashboardPage.clickPimMenuItem();
   });
 
-  test('@TC-0003 Verify that an employee can be created', {
-    tag: ['@Smoke', '@Functional', '@Regression'],
-  }, async () => {
-    await employeeListPage.clickAddButton();
+  test(
+    '@TC-0003 Verify that an employee can be created',
+    {
+      tag: ['@Smoke', '@Functional', '@Regression'],
+    },
+    async () => {
+      await employeeListPage.clickAddButton();
 
-    const guid = GuidGenerator.generateNumericGuid(10);
-    await addEmployeePage.addEmployee('Mary', 'Elizabeth', 'Smith', guid);
+      const guid = GuidGenerator.generateNumericGuid(10);
+      await addEmployeePage.addEmployee('Mary', 'Elizabeth', 'Smith', guid);
 
-    const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation();
-    expect(isEmployeeCreated).toBeTruthy();
-  });
+      const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation();
+      expect(isEmployeeCreated).toBeTruthy();
+    },
+  );
 
-  test('@TC-0004 Verify that an employee cannot be created when required fields are left empty', {
-    tag: ['@Negative', '@Regression'],
-  }, async () => {
+  test(
+    '@TC-0004 Verify that an employee cannot be created when required fields are left empty',
+    {
+      tag: ['@Negative', '@Regression'],
+    },
+    async () => {
+      await employeeListPage.clickAddButton();
 
-    await employeeListPage.clickAddButton();
+      await addEmployeePage.addEmployee('', '', '', '');
 
-    await addEmployeePage.addEmployee('', '', '', '');
-
-    const areErrorsVisible = await addEmployeePage.verifyRequiredFields();
-    expect(areErrorsVisible).toBeTruthy();
-  });
+      const areErrorsVisible = await addEmployeePage.verifyRequiredFields();
+      expect(areErrorsVisible).toBeTruthy();
+    },
+  );
 });

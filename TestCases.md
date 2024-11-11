@@ -1,5 +1,7 @@
 # :test_tube: Test cases
+
 List of test cases implemented in the Framework.
+
 <table>
   <tr>
     <th>Test case</th>

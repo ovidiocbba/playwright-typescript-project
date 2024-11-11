@@ -7,7 +7,6 @@ export class LoginPage {
   readonly loginButton: Locator;
   readonly alertContentLabel: Locator;
 
-
   constructor(page: Page) {
     this.page = page;
     this.usernameTextField = page.locator('input[name=username]');
@@ -19,9 +18,9 @@ export class LoginPage {
   async goto() {
     await this.page.goto('/web/index.php/auth/login');
   }
- 
+
   async login(username: string, password: string) {
-    await this.usernameTextField.fill(username);  
+    await this.usernameTextField.fill(username);
     await this.passwordTextField.fill(password);
     await this.loginButton.click();
   }

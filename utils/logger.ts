@@ -9,11 +9,11 @@ const logger = createLogger({
     format.timestamp(),
     format.printf(({ timestamp, level, message }) => {
       return `${timestamp} [${level}]: ${message}`;
-    })
+    }),
   ),
   transports: [
-    new transports.Console(),   // Log to the console
-    new transports.File({ filename: logFile })  // Log to a file
+    new transports.Console(), // Log to the console
+    new transports.File({ filename: logFile }), // Log to a file
   ],
 });
 

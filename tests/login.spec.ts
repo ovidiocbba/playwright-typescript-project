@@ -13,20 +13,28 @@ test.describe('Login Tests', () => {
     logger.info('Starting the test');
   });
 
-  test('@TC-0001 Verify that a user can successfully log in with valid credentials', {
-    tag: ['@Smoke', '@Functional' ,'@Regression'],
-  }, async ({ page }) => {
-    await loginPage.login(config.userName, config.password);
-    await page.waitForURL(/\/dashboard/);
-    // Expect to be redirected to dashboard.
-    await expect(page).toHaveURL(/\/dashboard/);
-  });
-  test('@TC-0002 Verify that a user receives an error message when attempting to log in with incorrect credentials', {
-    tag: ['@Negative','@Regression'],
-  }, async ({ page }) => {
-    await loginPage.login(config.userName, 'wrongpass');
-    const actualMessage = loginPage.alertContentLabel;
-    const expectMessage = 'Invalid credentials';
-    await expect(actualMessage).toHaveText(expectMessage);
-  });
+  test(
+    '@TC-0001 Verify that a user can successfully log in with valid credentials',
+    {
+      tag: ['@Smoke', '@Functional', '@Regression'],
+    },
+    async ({ page }) => {
+      await loginPage.login(config.userName, config.password);
+      await page.waitForURL(/\/dashboard/);
+      // Expect to be redirected to dashboard.
+      await expect(page).toHaveURL(/\/dashboard/);
+    },
+  );
+  test(
+    '@TC-0002 Verify that a user receives an error message when attempting to log in with incorrect credentials',
+    {
+      tag: ['@Negative', '@Regression'],
+    },
+    async ({ page }) => {
+      await loginPage.login(config.userName, 'wrongpass');
+      const actualMessage = loginPage.alertContentLabel;
+      const expectMessage = 'Invalid credentials';
+      await expect(actualMessage).toHaveText(expectMessage);
+    },
+  );
 });
