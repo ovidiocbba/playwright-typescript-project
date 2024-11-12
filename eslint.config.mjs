@@ -36,6 +36,14 @@ export default [
           selector: 'method',
           format: ['camelCase'],
         },
+        {
+          selector: 'class',
+          format: ['PascalCase'],
+        },
+        {
+          selector: 'interface',
+          format: ['PascalCase'],
+        },
       ],
 
       // Playwright rules.
