@@ -63,6 +63,9 @@ export default [
         },
       ],
       'eol-last': ['error', 'always'], // Add a newline at the end of each file.
+      // Disallow the use of "var" and recommend "let" or "const" instead.
+      'no-var': 'error', // Error if "var" is used.
+      'prefer-const': 'error', // Suggest using "const" if the variable is not reassigned.
     },
   },
   // Disable ESLint rules that conflict with Prettier.
