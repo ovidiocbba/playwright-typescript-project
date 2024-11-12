@@ -9,7 +9,7 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=ovidiocbba_playwright-typescript-project&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=ovidiocbba_playwright-typescript-project)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ovidiocbba_playwright-typescript-project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ovidiocbba_playwright-typescript-project)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ovidiocbba_playwright-typescript-project&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ovidiocbba_playwright-typescript-project)  
-[View Allure Report][allure_report]
+[:bar_chart: View Allure Report][allure_report]
 
 # Table of contents
 
@@ -19,9 +19,9 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 - [:scroll: Code Conventions](documentation/CodeConventions.md)
 - [:rocket: Getting Started](#rocket-getting-started)
   - [:gear: Prerequisites](#gear-prerequisites)
-    - [Node.js](#1-nodejs)
-    - [Git](#2-git)
-    - [Visual Studio Code](#3-visual-studio-code)
+    - [:package: Node.js](#package-1-nodejs)
+    - [:octocat: Git](#octocat-2-git)
+    - [:hammer_and_wrench: Visual Studio Code](#hammer_and_wrench-3-visual-studio-code)
   - [:desktop_computer: Environment Configuration](#desktop_computer-environment-configuration)
     - [Clone remote repository](#1-clone-remote-repository)
     - [Install Dependencies](#2-install-dependencies)
@@ -119,7 +119,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### :gear: Prerequisites
 
-#### 1. Node.js
+#### :package: 1. Node.js
 
 1. Ensure you have [Node.js](https://nodejs.org/en) installed (version 14 or higher).
 2. Verify the installation by running the following commands in your terminal:
@@ -128,13 +128,13 @@ These instructions will get you a copy of the project up and running on your loc
 npm -v
 ```
 
-#### 2. Git
+#### :octocat: 2. Git
 
 1. Please download Git: https://git-scm.com/downloads
 2. Choose the version for your operating system.
 3. Accept the defaults and follow the screen instructions to install Git.
 
-#### 3. Visual Studio Code
+#### :hammer_and_wrench: 3. Visual Studio Code
 
 1. Please download Visual Studio Code: https://code.visualstudio.com/
 2. Choose your operating system (Windows, macOS, or Linux).
