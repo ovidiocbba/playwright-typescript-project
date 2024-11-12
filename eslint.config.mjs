@@ -22,6 +22,21 @@ export default [
       // TypeScript rules.
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/naming-convention': [
+        'error',
+        {
+          selector: 'variable',
+          format: ['camelCase'],
+        },
+        {
+          selector: 'function',
+          format: ['camelCase'],
+        },
+        {
+          selector: 'method',
+          format: ['camelCase'],
+        },
+      ],
 
       // Playwright rules.
       'playwright/no-force-option': 'warn',
