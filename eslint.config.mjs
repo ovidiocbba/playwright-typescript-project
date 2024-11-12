@@ -66,6 +66,16 @@ export default [
       // Disallow the use of "var" and recommend "let" or "const" instead.
       'no-var': 'error', // Error if "var" is used.
       'prefer-const': 'error', // Suggest using "const" if the variable is not reassigned.
+      // Avoid Magic Numbers - Enforce defining constants instead of using numbers directly
+      'no-magic-numbers': [
+        'error',
+        {
+          ignore: [0, 1], // Allow 0 and 1 as valid numbers.
+          ignoreArrayIndexes: true, // Allow array indexes (e.g., arr[0], arr[1]).
+          enforceConst: true, // Require constant variables for magic numbers.
+          detectObjects: false, // Don't flag object properties as magic numbers.
+        },
+      ],
     },
   },
   // Disable ESLint rules that conflict with Prettier.

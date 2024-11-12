@@ -34,8 +34,8 @@ test.describe('PIM', () => {
     },
     async () => {
       await employeeListPage.clickAddButton();
-
-      const guid = GuidGenerator.generateNumericGuid(10);
+      const guidLength = 10; // Define a constant for the magic number
+      const guid = GuidGenerator.generateNumericGuid(guidLength);
       await addEmployeePage.addEmployee('Mary', 'Elizabeth', 'Smith', guid);
 
       const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation();

@@ -1,3 +1,4 @@
+const defaultGuidLength = 10;
 export class GuidGenerator {
   /**
    * Generates a numeric GUID of a specified length.
@@ -5,17 +6,17 @@ export class GuidGenerator {
    * @returns A string representation of the generated numeric GUID.
    * @throws Error if the length is less than 1.
    */
-  static generateNumericGuid(length: number = 10): string {
+  static generateNumericGuid(length: number = defaultGuidLength): string {
     // Validate that the length is within the allowed range
     if (length < 1) {
       throw new Error('Length must be at least 1.');
     }
 
     let numericGuid = '';
-
+    const digitRange = 10;
     // Generate a numeric GUID of the specified length
     for (let i = 0; i < length; i++) {
-      const digit = Math.floor(Math.random() * 10); // Generate a random digit from 0 to 9
+      const digit = Math.floor(Math.random() * digitRange); // Generate a random digit from 0 to 9
       numericGuid += digit.toString(); // Append the digit to the result string
     }
 
