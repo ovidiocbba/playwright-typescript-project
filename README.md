@@ -13,9 +13,10 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 
 # Table of contents
 
-- [:test_tube: Test Cases](TestCases.md)
+- [:test_tube: Test Cases](documentation/TestCases.md)
 - [:clipboard: Features](#clipboard-features)
 - [:robot: GitHub Actions](#robot-github-actions)
+- [:scroll: Code Conventions](documentation/CodeConventions.md)
 - [:rocket: Getting Started](#rocket-getting-started)
   - [:gear: Prerequisites](#gear-prerequisites)
     - [Node.js](#1-nodejs)
@@ -141,7 +142,9 @@ npm -v
    - **Playwright Test for VSCode**  
      _Provides integration with Playwright for running, debugging, and managing tests directly within Visual Studio Code._
    - **ESLint**  
-     _Automatically checks your code for errors and style issues based on your project's ESLint rules, providing instant feedback and quick fixes as you write._
+     _Automatically checks your code for errors and style issues based on this project's ESLint rules, providing instant feedback and quick fixes as you write._
+   - **Prettier - Code formatter**  
+     _Automatically formats code to ensure consistent style across this project._
    - **YAML**  
     _Offers syntax highlighting, validation, and autocompletion for YAML files, which are commonly used for configuration files in CI/CD pipelines._
    <div align="right">
@@ -271,6 +274,28 @@ npm run test:ui:allure
 
   </td>
     <td>Runs the tests using the Allure reporter and generates the corresponding report.</td>
+  </tr>
+
+  <tr>
+  <td>
+
+```bash
+npm run format
+```
+
+  </td>
+    <td>Formats the code using Prettier.</td>
+  </tr>
+
+  <tr>
+  <td>
+
+```bash
+npm run lint
+```
+
+  </td>
+    <td>Checks the code for style issues and errors using ESLint.</td>
   </tr>
 </table>
 <div align="right">
