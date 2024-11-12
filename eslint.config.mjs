@@ -26,6 +26,20 @@ export default [
         'error',
         {
           selector: 'variable',
+          modifiers: ['const'],
+          format: ['UPPER_CASE'],
+        },
+        {
+          selector: 'variable',
+          modifiers: ['const'],
+          format: ['camelCase'],
+          filter: {
+            regex: '^[A-Z0-9_]+$',
+            match: false,
+          },
+        },
+        {
+          selector: 'variable',
           format: ['camelCase'],
         },
         {

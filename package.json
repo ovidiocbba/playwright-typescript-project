@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write .",
+    "format": "prettier --write . | grep -v 'unchanged'",
     "lint": "eslint .",
     "test:ui": "npx playwright test --headed && npx playwright show-report",
     "test:ui:headless": "npx playwright test && npx playwright show-report",

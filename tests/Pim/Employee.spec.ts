@@ -12,7 +12,7 @@ test.describe('PIM', () => {
   let dashboardPage: DashboardPage;
   let employeeListPage: EmployeeListPage;
   let addEmployeePage: AddEmployeePage;
-  const config = Config.getInstance();
+  const CONFIG = Config.getInstance();
 
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
@@ -21,9 +21,9 @@ test.describe('PIM', () => {
     addEmployeePage = new AddEmployeePage(page);
     logger.info('Starting the test');
     await loginPage.goto();
-    await loginPage.login(config.userName, config.password);
+    await loginPage.login(CONFIG.userName, CONFIG.password);
 
-    // Navigate to PIM module
+    // Navigate to PIM module.
     await dashboardPage.clickPimMenuItem();
   });
 
@@ -34,8 +34,8 @@ test.describe('PIM', () => {
     },
     async () => {
       await employeeListPage.clickAddButton();
-      const guidLength = 10; // Define a constant for the magic number
-      const guid = GuidGenerator.generateNumericGuid(guidLength);
+      const GUID_LENGTH = 10;
+      const guid = GuidGenerator.generateNumericGuid(GUID_LENGTH);
       await addEmployeePage.addEmployee('Mary', 'Elizabeth', 'Smith', guid);
 
       const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation();

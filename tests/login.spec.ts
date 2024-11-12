@@ -5,7 +5,7 @@ import logger from '../utils/logger';
 
 test.describe('Login Tests', () => {
   let loginPage: LoginPage;
-  const config = Config.getInstance();
+  const CONFIG = Config.getInstance();
 
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
@@ -19,7 +19,7 @@ test.describe('Login Tests', () => {
       tag: ['@Smoke', '@Functional', '@Regression'],
     },
     async ({ page }) => {
-      await loginPage.login(config.userName, config.password);
+      await loginPage.login(CONFIG.userName, CONFIG.password);
       await page.waitForURL(/\/dashboard/);
       // Expect to be redirected to dashboard.
       await expect(page).toHaveURL(/\/dashboard/);
@@ -31,7 +31,7 @@ test.describe('Login Tests', () => {
       tag: ['@Negative', '@Regression'],
     },
     async ({ page }) => {
-      await loginPage.login(config.userName, 'wrongpass');
+      await loginPage.login(CONFIG.userName, 'wrongpass');
       const actualMessage = loginPage.alertContentLabel;
       const expectMessage = 'Invalid credentials';
       await expect(actualMessage).toHaveText(expectMessage);

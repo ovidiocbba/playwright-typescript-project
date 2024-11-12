@@ -10,8 +10,8 @@ const envConfig = {
   test: baseEnvUrl.test.home,
 };
 
-// Define the baseURL based on the ENV variable, defaulting to 'test'
-const baseURL = envConfig[process.env.ENV as keyof typeof envConfig] || baseEnvUrl.test.home;
+// Define the baseURL based on the ENV variable, defaulting to 'test'.
+const BASE_URL = envConfig[process.env.ENV as keyof typeof envConfig] || baseEnvUrl.test.home;
 
 export default defineConfig({
   testDir: './tests',
@@ -47,7 +47,7 @@ export default defineConfig({
     timeout: 5000, // Maximum time to wait for `expect` conditions (like toHaveText).
   },
   use: {
-    baseURL, // Use the dynamically set baseURL.
+    baseURL: BASE_URL, // Use the dynamically set baseURL.
     trace: 'on-first-retry', // Record a trace only when retrying a test for the first time.
     screenshot: 'only-on-failure', // Screenshots only when a test fails.
     headless: true,
