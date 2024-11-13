@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/Login-page';
-import { DashboardPage } from '../../pages/Dashboard-page';
-import { EmployeeListPage } from '../../pages/Pim/EmployeeList-page';
-import { AddEmployeePage } from '../../pages/Pim/AddEmployee-page';
-import { GuidGenerator } from '../../utils/GuidGenerator';
-import Config from '../../utils/Config';
+import { LoginPage } from '../../pages/login-page';
+import { DashboardPage } from '../../pages/dashboard-page';
+import { EmployeeListPage } from '../../pages/pim/employee-list-page';
+import { AddEmployeePage } from '../../pages/pim/add-employee-page';
+import { GuidGenerator } from '../../utils/guidGenerator';
+import Config from '../../utils/config';
 import logger from '../../utils/logger';
 
 test.describe('PIM', () => {
