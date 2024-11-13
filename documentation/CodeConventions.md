@@ -110,13 +110,14 @@ const GUID_LENGTH = 10;
 #### 2. Dynamically generated but unchanging value:
 
 ```typescript
-const guid = GuidGenerator.generateNumericGuid(GUID_LENGTH);
+const guid = GuidGenerator.generateNumericGuid(GUID_LENGTH); // GUID is generated but won't be reassigned.
+await addEmployeePage.addEmployee('Mary', 'Elizabeth', 'Smith', guid);
 ```
 
 #### 3. Function result:
 
 ```typescript
-const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation(); // The result won't change after assignment
+const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation(); // The result won't change after assignment.
 ```
 
 ## :crystal_ball: 6. Avoid Magic Numbers
