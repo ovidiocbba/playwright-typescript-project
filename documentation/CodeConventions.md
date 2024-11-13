@@ -10,6 +10,7 @@ Here are some code conventions used for this project.
 - [:gear: 4. Class and Interface Naming](#gear-4-class-and-interface-naming)
 - [:lock: 5. Use of `const` and `let`](#lock-5-use-of-const-and-let)
 - [:crystal_ball: 6. Avoid Magic Numbers](#crystal_ball-6-avoid-magic-numbers)
+- [:memo: 7. Commenting and Documentation](#memo-7-commenting-and-documentation)
 
 ## :file_folder: 1. File Naming
 
@@ -166,5 +167,85 @@ const discount = price * DISCOUNT_RATE;
 By defining `DISCOUNT_RATE` as a constant, it’s now clear that 0.15 represents a 15% discount, making the code easier to read and maintain.
 
 <div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
+## :memo: 7. Commenting and Documentation
+
+We document functions, classes, and complex logic using **JSDoc** to provide context and improve readability.
+
+```typescript
+/**
+ * Submits the login form with the provided username and password.
+ * @param username - The user's username.
+ * @param password - The user's password.
+ */
+async function submitLoginForm(username: string, password: string) { ... }
+
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
+## :memo: 8. Code Formatting and Linting
+
+We use **Prettier** and **ESLint** to ensure consistent code formatting and quality. These tools are integrated into the project to automatically **format** and **lint** the code according to the rules defined in the configuration files (`.eslintrc` and `.prettierrc`).
+
+#### Example 1 (Spacing around operators and assignments):
+
+**Bad Example**: No spaces around the assignment operator(`=`).
+
+```typescript
+// prettier-ignore
+let x=10;
+// prettier-ignore
+const y=20;
+```
+
+**Good Example**: Correct spacing around the assignment operator(`=`).
+
+```typescript
+let x = 10;
+const y = 20;
+```
+
+#### Example 2 (Consistent use of semicolons):
+
+**Bad Example**:
+
+```typescript
+// prettier-ignore
+const name = 'John'
+// prettier-ignore
+const age = 30;
+```
+
+**Good Example**: Always use semicolons at the end of statements.
+
+```typescript
+const name = 'John';
+const age = 30;
+```
+
+Here are some formatting rules that ensure readability and consistency, reducing the likelihood of errors and improving collaboration between developers.
+
+**Formats the code using Prettier**
+
+```bash
+npm run format
+```
+
+**Checks the code for style issues and errors using ESLint**.
+
+```bash
+npm run lint
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
+<div align="left">
     <b><a href="https://github.com/ovidiocbba/playwright-typescript-project?tab=readme-ov-file#table-of-contents">↥ Back to main page</a></b>
 </div>
