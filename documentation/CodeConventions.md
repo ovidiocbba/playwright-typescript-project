@@ -73,12 +73,50 @@ class LoginPage {
 
 ## :lock: 5. Use of `const` and `let`
 
-- In this project, we always use **const** for variables whose values do not change, and **let** for variables that are reassigned. We avoid using **var** altogether.
-  **Example:**
+- In this project, we always use `const` for variables whose values do not change, and `let` for variables that are reassigned. We don't use `var` because it can cause confusing behavior.
+
+  - **const**: Use this when the value stays the same after being assigned (e.g., settings, constants, or dynamically generated values that don't change).
+  - **let**: Use this when the value may change during execution.
+
+  Additionally:
+
+  - For constants, we follow the **SCREAMING_SNAKE_CASE** naming convention (**uppercase with underscores**).
+  - For variables that can change, we use **camelCase** naming convention.
+
+**Example:**
 
 ```typescript
-const maxAttempts = 3;
-let currentAttempt = 0;
+const API_TIMEOUT = 5000; // Constant: timeout in milliseconds.
+let retries = 0; // Variable: will be reassigned during execution.
+
+while (retries < 3) {
+  try {
+    await fetchData();
+    break;
+  } catch (error) {
+    retries++;
+  }
+}
+```
+
+**Examples of `const` Usage**:
+
+#### 1. Fixed constant:
+
+```typescript
+const GUID_LENGTH = 10;
+```
+
+#### 2. Dynamically generated but unchanging value:
+
+```typescript
+const guid = GuidGenerator.generateNumericGuid(GUID_LENGTH);
+```
+
+#### 3. Function result:
+
+```typescript
+const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation(); // The result won't change after assignment
 ```
 
 ## :crystal_ball: 6. Avoid Magic Numbers
