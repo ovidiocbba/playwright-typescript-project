@@ -12,20 +12,22 @@ Here are some code conventions used for this project.
   - [1. Fixed constant](#1-fixed-constant)
   - [2. Dynamically generated but unchanging value](#2-dynamically-generated-but-unchanging-value)
   - [3. Function result](#3-function-result)
-- [:crystal_ball: 6. Avoid Magic Numbers](#crystal_ball-6-avoid-magic-numbers)
+- [:crystal_ball: 6. Consistent Spacing and Indentation](#crystal_ball-6-consistent-spacing-and-indentation)
+  - [Example:](#example)
+- [:crystal_ball: 7. Avoid Magic Numbers](#crystal_ball-7-avoid-magic-numbers)
   - [Bad Example](#bad-example)
   - [Good Example](#good-example)
-- [:memo: 7. Commenting and Documentation](#memo-7-commenting-and-documentation)
-- [:straight_ruler: 8. Code Formatting and Linting](#straight_ruler-8-code-formatting-and-linting)
+- [:memo: 8. Commenting and Documentation](#memo-8-commenting-and-documentation)
+- [:straight_ruler: 9. Code Formatting and Linting](#straight_ruler-9-code-formatting-and-linting)
   - [Example 1 (Spacing around operators and assignments)](#example-1-spacing-around-operators-and-assignments)
   - [Example 2 (Consistent use of semicolons)](#example-2-consistent-use-of-semicolons)
-- [:jigsaw: 9. Single Responsibility Principle](#jigsaw-9-single-responsibility-principle)
+- [:jigsaw: 10. Single Responsibility Principle](#jigsaw-10-single-responsibility-principle)
   - [Bad Example](#bad-example-1)
   - [Good Example](#good-example-1)
-- [:repeat: 10. DRY (Don't Repeat Yourself) Principle](#repeat-10-dry-dont-repeat-yourself-principle)
+- [:repeat: 11. DRY (Don't Repeat Yourself) Principle](#repeat-11-dry-dont-repeat-yourself-principle)
   - [Bad Example](#bad-example-2)
   - [Good Example](#good-example-2)
-- [:no_entry_sign: 11. YAGNI (You Aren’t Gonna Need It)](#no_entry_sign-11-yagni-you-arent-gonna-need-it)
+- [:no_entry_sign: 12. YAGNI (You Aren’t Gonna Need It) Principle](#no_entry_sign-12-yagni-you-arent-gonna-need-it-principle)
   - [Bad Example](#bad-example-3)
   - [Good Example](#good-example-3)
 
@@ -162,7 +164,24 @@ const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation(); // The
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## :crystal_ball: 6. Avoid Magic Numbers
+## :crystal_ball: 6. Consistent Spacing and Indentation
+
+Use 2 spaces for indentation. This should be enforced through a code formatter like Prettier to ensure consistency.
+
+#### Example:
+
+```typescript
+async function navigateToDashboard() {
+  await page.click('#dashboard');
+  await page.waitForSelector('#dashboard-content');
+}
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
+## :crystal_ball: 7. Avoid Magic Numbers
 
 This project avoids magic numbers (unnamed constants) by using well-named constants to make the code more readable and maintainable.
 
@@ -187,7 +206,7 @@ By defining `DISCOUNT_RATE` as a constant, it’s now clear that 0.15 represents
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## :memo: 7. Commenting and Documentation
+## :memo: 8. Commenting and Documentation
 
 We document functions, classes, and complex logic using **JSDoc** to provide context and improve readability.
 
@@ -205,7 +224,7 @@ async function submitLoginForm(username: string, password: string) { ... }
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## :straight_ruler: 8. Code Formatting and Linting
+## :straight_ruler: 9. Code Formatting and Linting
 
 We use **Prettier** and **ESLint** to ensure consistent code formatting and quality. These tools are integrated into the project to automatically **format** and **lint** the code according to the rules defined in the configuration files (`.eslintrc` and `.prettierrc`).
 
@@ -263,7 +282,7 @@ npm run lint
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## :jigsaw: 9. Single Responsibility Principle
+## :jigsaw: 10. Single Responsibility Principle
 
 Follow the **Single Responsibility Principle** (SRP) to ensure each function or class in the project has one responsibility. This keeps the code modular and easier to test and maintain.
 
@@ -317,7 +336,7 @@ The `loginAndGoToDashboard()` function orchestrates the two, keeping each piece 
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## :repeat: 10. DRY (Don't Repeat Yourself) Principle
+## :repeat: 11. DRY (Don't Repeat Yourself) Principle
 
 Avoid duplicating code by creating reusable functions or components. Whenever you see repeated code, it's a good indicator that you should refactor it into a separate function.
 
@@ -347,7 +366,7 @@ await clickAndWait('#cancel', '#cancel-confirm');
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## :no_entry_sign: 11. YAGNI (You Aren’t Gonna Need It)
+## :no_entry_sign: 12. YAGNI (You Aren’t Gonna Need It) Principle
 
 The YAGNI principle emphasizes that you should not add functionality unless it is absolutely necessary. Writing code in anticipation of future requirements often leads to unnecessary complexity and maintenance burden.
 
