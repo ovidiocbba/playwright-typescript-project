@@ -4,13 +4,30 @@ Here are some code conventions used for this project.
 
 # Table of contents
 
-- [:file_folder: 1. File Naming](#file_folder-1-file-naming)
-- [:card_file_box: 2. Project Organization](#card_file_box-2-project-organization)
-- [:dromedary_camel: 3. Variable and Function Naming](#dromedary_camel-3-variable-and-function-naming)
-- [:gear: 4. Class and Interface Naming](#gear-4-class-and-interface-naming)
-- [:lock: 5. Use of `const` and `let`](#lock-5-use-of-const-and-let)
-- [:crystal_ball: 6. Avoid Magic Numbers](#crystal_ball-6-avoid-magic-numbers)
-- [:memo: 7. Commenting and Documentation](#memo-7-commenting-and-documentation)
+  - [:file\_folder: 1. File Naming](#file_folder-1-file-naming)
+  - [:card\_file\_box: 2. Project Organization](#card_file_box-2-project-organization)
+  - [:dromedary\_camel: 3. Variable and Function Naming](#dromedary_camel-3-variable-and-function-naming)
+  - [:gear: 4. Class and Interface Naming](#gear-4-class-and-interface-naming)
+  - [:lock: 5. Use of `const` and `let`](#lock-5-use-of-const-and-let)
+      - [1. Fixed constant](#1-fixed-constant)
+      - [2. Dynamically generated but unchanging value](#2-dynamically-generated-but-unchanging-value)
+      - [3. Function result](#3-function-result)
+  - [:crystal\_ball: 6. Avoid Magic Numbers](#crystal_ball-6-avoid-magic-numbers)
+      - [Bad Example](#bad-example)
+      - [Good Example](#good-example)
+  - [:memo: 7. Commenting and Documentation](#memo-7-commenting-and-documentation)
+  - [:straight\_ruler: 8. Code Formatting and Linting](#straight_ruler-8-code-formatting-and-linting)
+      - [Example 1 (Spacing around operators and assignments)](#example-1-spacing-around-operators-and-assignments)
+      - [Example 2 (Consistent use of semicolons)](#example-2-consistent-use-of-semicolons)
+  - [:jigsaw: 9. Single Responsibility Principle](#jigsaw-9-single-responsibility-principle)
+      - [Bad Example](#bad-example-1)
+      - [Good Example](#good-example-1)
+  - [:repeat: 10. DRY (Don't Repeat Yourself) Principle](#repeat-10-dry-dont-repeat-yourself-principle)
+      - [Bad Example](#bad-example-2)
+      - [Good Example](#good-example-2)
+  - [:no\_entry\_sign: 11. YAGNI (You Aren’t Gonna Need It)](#no_entry_sign-11-yagni-you-arent-gonna-need-it)
+      - [Bad Example](#bad-example-3)
+      - [Good Example](#good-example-3)
 
 ## :file_folder: 1. File Naming
 
@@ -122,20 +139,20 @@ while (retries < 3) {
 
 **Examples of `const` Usage**:
 
-#### 1. Fixed constant:
+#### 1. Fixed constant
 
 ```typescript
 const GUID_LENGTH = 10;
 ```
 
-#### 2. Dynamically generated but unchanging value:
+#### 2. Dynamically generated but unchanging value
 
 ```typescript
 const guid = GuidGenerator.generateNumericGuid(GUID_LENGTH); // GUID is generated but won't be reassigned.
 await addEmployeePage.addEmployee('Mary', 'Elizabeth', 'Smith', guid);
 ```
 
-#### 3. Function result:
+#### 3. Function result
 
 ```typescript
 const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation(); // The result won't change after assignment.
@@ -149,7 +166,7 @@ const isEmployeeCreated = await addEmployeePage.verifyEmployeeCreation(); // The
 
 This project avoids magic numbers (unnamed constants) by using well-named constants to make the code more readable and maintainable.
 
-#### Bad Example (Magic Number):
+#### Bad Example
 
 ```typescript
 const discount = price * 0.15; // What does 0.15 represent?
@@ -157,7 +174,7 @@ const discount = price * 0.15; // What does 0.15 represent?
 
 In this case, it's unclear what 0.15 represents. Someone reading the code might not immediately know that it's a 15% discount.
 
-#### Good Example (Avoid Magic Number):
+#### Good Example
 
 ```typescript
 const DISCOUNT_RATE = 0.15; // 15% discount rate.
@@ -188,11 +205,11 @@ async function submitLoginForm(username: string, password: string) { ... }
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
 
-## :memo: 8. Code Formatting and Linting
+## :straight_ruler: 8. Code Formatting and Linting
 
 We use **Prettier** and **ESLint** to ensure consistent code formatting and quality. These tools are integrated into the project to automatically **format** and **lint** the code according to the rules defined in the configuration files (`.eslintrc` and `.prettierrc`).
 
-#### Example 1 (Spacing around operators and assignments):
+#### Example 1 (Spacing around operators and assignments)
 
 **Bad Example**: No spaces around the assignment operator(`=`).
 
@@ -210,7 +227,7 @@ let x = 10;
 const y = 20;
 ```
 
-#### Example 2 (Consistent use of semicolons):
+#### Example 2 (Consistent use of semicolons)
 
 **Bad Example**:
 
@@ -241,6 +258,158 @@ npm run format
 ```bash
 npm run lint
 ```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
+## :jigsaw: 9. Single Responsibility Principle
+
+Follow the **Single Responsibility Principle** (SRP) to ensure each function or class in the project has one responsibility. This keeps the code modular and easier to test and maintain.
+
+#### Bad Example
+
+```typescript
+async function loginAndNavigateToDashboard(username: string, password: string) {
+  await page.fill('#username', username);
+  await page.fill('#password', password);
+  await page.click('#login');
+  await page.waitForNavigation();
+  await page.click('#dashboard-link');
+}
+```
+
+In this example, the function is doing two things:
+
+1. Logging in.
+2. Navigating to the dashboard.
+   These are two separate responsibilities, and combining them violates SRP.
+
+#### Good Example
+
+```typescript
+async function login(username: string, password: string) {
+  await page.fill('#username', username);
+  await page.fill('#password', password);
+  await page.click('#login');
+  await page.waitForNavigation();
+}
+
+async function navigateToDashboard() {
+  await page.click('#dashboard-link');
+  await page.waitForSelector('#dashboard-header');
+}
+
+async function loginAndGoToDashboard(username: string, password: string) {
+  await login(username, password);
+  await navigateToDashboard();
+}
+```
+
+In this improved example:
+
+- The `login()` function is only responsible for handling the login process.
+- The `navigateToDashboard()` function is only responsible for navigating to the dashboard.
+
+The `loginAndGoToDashboard()` function orchestrates the two, keeping each piece of logic separate and following SRP. This makes the code easier to maintain, test, and extend if needed (e.g., **adding a different navigation after login**).
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
+## :repeat: 10. DRY (Don't Repeat Yourself) Principle
+
+Avoid duplicating code by creating reusable functions or components. Whenever you see repeated code, it's a good indicator that you should refactor it into a separate function.
+
+#### Bad Example
+
+```typescript
+await page.click('#submit');
+await page.waitForSelector('#success');
+
+await page.click('#cancel');
+await page.waitForSelector('#cancel-confirm');
+```
+
+#### Good Example
+
+```typescript
+async function clickAndWait(buttonSelector: string, waitSelector: string) {
+  await page.click(buttonSelector);
+  await page.waitForSelector(waitSelector);
+}
+
+await clickAndWait('#submit', '#success');
+await clickAndWait('#cancel', '#cancel-confirm');
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ Back to top</a></b>
+</div>
+
+## :no_entry_sign: 11. YAGNI (You Aren’t Gonna Need It)
+
+The YAGNI principle emphasizes that you should not add functionality unless it is absolutely necessary. Writing code in anticipation of future requirements often leads to unnecessary complexity and maintenance burden.
+
+#### Bad Example
+
+```typescript
+class UserForm {
+  private username: string;
+  private password: string;
+  private email: string;
+  private phoneNumber: string; // Unnecessary, not required yet
+  private address: string; // Unnecessary, not required yet
+
+  constructor(username: string, password: string, email: string) {
+    this.username = username;
+    this.password = password;
+    this.email = email;
+  }
+
+  async submitForm() {
+    await page.fill('#username', this.username);
+    await page.fill('#password', this.password);
+    await page.fill('#email', this.email);
+    // Leaving unnecessary fields empty
+  }
+}
+
+const userForm = new UserForm('john_doe', 'password123', 'john@example.com');
+await userForm.submitForm();
+```
+
+In this example, the class **UserForm** has attributes like `phoneNumber` and `address` that are not currently needed. These fields add complexity but have no practical use at the moment.
+
+#### Good Example
+
+```typescript
+class UserForm {
+  private username: string;
+  private password: string;
+  private email: string;
+
+  constructor(username: string, password: string, email: string) {
+    this.username = username;
+    this.password = password;
+    this.email = email;
+  }
+
+  async submitForm() {
+    await page.fill('#username', this.username);
+    await page.fill('#password', this.password);
+    await page.fill('#email', this.email);
+  }
+}
+
+const userForm = new UserForm('john_doe', 'password123', 'john@example.com');
+await userForm.submitForm();
+```
+
+In this improved version:
+
+- Only the necessary fields (username, password, and email) are included in the class, since that’s all that’s needed for the current form.
+- The code is simpler, easier to understand, and avoids future maintenance of unused fields.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back to top</a></b>
