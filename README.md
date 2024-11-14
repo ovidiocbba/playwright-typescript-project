@@ -221,6 +221,28 @@ npx playwright show-report
     <th>Description</th>
   </tr>
   
+    <tr>
+  <td>
+
+```bash
+npm run format
+```
+
+  </td>
+    <td>Formats the code using Prettier.</td>
+  </tr>
+
+  <tr>
+  <td>
+
+```bash
+npm run lint
+```
+
+  </td>
+    <td>Checks the code for style issues and errors using ESLint.</td>
+  </tr>
+
   <tr>
   <td>
 
@@ -274,28 +296,6 @@ npm run test:ui:allure
 
   </td>
     <td>Runs the tests using the Allure reporter and generates the corresponding report.</td>
-  </tr>
-
-  <tr>
-  <td>
-
-```bash
-npm run format
-```
-
-  </td>
-    <td>Formats the code using Prettier.</td>
-  </tr>
-
-  <tr>
-  <td>
-
-```bash
-npm run lint
-```
-
-  </td>
-    <td>Checks the code for style issues and errors using ESLint.</td>
   </tr>
 </table>
 <div align="right">
