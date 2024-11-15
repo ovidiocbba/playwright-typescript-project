@@ -70,6 +70,21 @@ export default defineConfig({
     },
 
     {
+      name: 'chromium-slow', // Slow-motion execution. '--project=chromium-slow'
+      use: {
+        browserName: 'chromium',
+        headless: false, // Run with browser UI visible.
+        video: {
+          mode: 'on', // Record vide.
+          size: { width: 1920, height: 1080 },
+        },
+        launchOptions: {
+          slowMo: 1000, // Slow down actions by 1000ms.
+        },
+      },
+    },
+
+    {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
