@@ -245,7 +245,7 @@ npx playwright show-report
     <th>Description</th>
   </tr>
   
-    <tr>
+  <tr>
   <td>
 
 ```bash
@@ -289,6 +289,16 @@ npm run test:ui:chrome:headless
   <td>Run all tests with Chrome browser in headless mode</td>
   </tr>
   
+    <tr>
+  <td>
+
+```bash
+npm run test:ui:functional
+```
+
+  </td>
+  <td>Run the test cases give a specific tag with Chrome browser.Example: regression, smoke, acceptance, functional, e2e, negative and boundary </td>
+  </tr>
   <tr>
   <td>
 
