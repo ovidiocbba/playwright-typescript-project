@@ -80,15 +80,28 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
   ```
 
 - **Slow Motion Execution for Debugging**: This feature allows developers to slow down the execution of automated tests.
+
   - Helps debug flaky or timing-sensitive tests.
   - Makes it easier to observe and review step-by-step behavior of the tests.
   - Reduces the likelihood of missing UI bugs that might be invisible during normal test execution.
 
-Running tests in slow motion mode(**--project=chromium-slow**):
+  Running tests in slow motion mode(**--project=chromium-slow**):
 
-```bash
-npx playwright test --grep '@TC-0001' --project=chromium-slow --headed
-```
+  ```bash
+  npx playwright test --grep '@TC-0001' --project=chromium-slow --headed
+  ```
+
+- **Inspector Mode for Debugging**: This feature allows developers to pause test execution and interactively debug tests using **Playwright's Inspector**.
+
+  - **Step-by-step debugging**: Pause and inspect the test at any point, interact with the page, and review actions in real-time.
+  - **Ideal for troubleshooting**: Helps identify issues, verify selectors, and debug flaky or timing-sensitive tests.
+  - **Script generation**: Record interactions to automatically generate Playwright test code.
+
+  Using the `--debug` flag enables this mode, making test debugging more efficient and improving test reliability.
+
+  ```bash
+  npx playwright test --grep '@TC-0001' --project=chromium --headed --debug
+  ```
 
 - **Page Object Model (POM)**: Implemented for better test structure and maintainability.
 - **Logger**: Utilizes the winston library to manage logging during test execution.
