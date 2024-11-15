@@ -41,8 +41,8 @@ jobs:
     - name: Install Chromium and Firefox Playwright Browsers
       run: npx playwright install chromium firefox
 
-    - name: Run Playwright tests
-      run: npx playwright test
+    - name: Run Playwright tests for Chrome and Firefox browsers
+      run: npm run test:ui
 
      # Upload reports.
     - uses: actions/upload-artifact@v4
