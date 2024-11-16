@@ -1,1 +1,0 @@
-[{"uid":"b85d7f7e638b1971","name":"@TC-002 Failed Login with Incorrect Credentials","time":{"start":1730674722738,"stop":1730674725688,"duration":2950},"status":"passed","severity":"normal"},{"uid":"81753f21d3f8845a","name":"@TC-001 Successful login","time":{"start":1730674718967,"stop":1730674722368,"duration":3401},"status":"passed","severity":"normal"}]
