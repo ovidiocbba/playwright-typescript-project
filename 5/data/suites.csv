@@ -1,5 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","3174","@TC-001 Successful login","firefox","Sun Nov 03 22:42:59 GMT 2024","passed","Sun Nov 03 22:43:02 GMT 2024","Login Tests","login.spec.ts","",""
-"","2478","@TC-001 Successful login","chromium","Sun Nov 03 22:42:54 GMT 2024","passed","Sun Nov 03 22:42:56 GMT 2024","Login Tests","login.spec.ts","",""
-"","2629","@TC-002 Failed Login with Incorrect Credentials","firefox","Sun Nov 03 22:43:03 GMT 2024","passed","Sun Nov 03 22:43:05 GMT 2024","Login Tests","login.spec.ts","",""
-"","2332","@TC-002 Failed Login with Incorrect Credentials","chromium","Sun Nov 03 22:42:56 GMT 2024","passed","Sun Nov 03 22:42:59 GMT 2024","Login Tests","login.spec.ts","",""
