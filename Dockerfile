@@ -18,4 +18,4 @@ COPY . .
 # NOTE: Pre-installed Playwright dependencies and browsers (Chromium, Firefox, WebKit).
 
 # Here, we run the test script defined in package.json (npm run test:ui).
-CMD ["npm,", "run", "test:ui"]
+CMD ["npm", "run", "test:ui"]
