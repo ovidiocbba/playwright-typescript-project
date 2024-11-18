@@ -233,6 +233,22 @@ View Test Reports
 npx playwright show-report
 ```
 
+#### :whale: Execution in Docker
+
+1. Clone the repository:
+2. Navigate to root project directory
+3. Build the docker image
+
+```bash
+docker build -t <imagename> .
+```
+
+4. Run the Docker container
+
+```bash
+docker run <imagename>
+```
+
 <div align="right">
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
