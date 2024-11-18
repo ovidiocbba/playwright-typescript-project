@@ -4,10 +4,6 @@ name: Run Playwright Tests in Docker
 on:
   # Allows you to run this workflow manually from the Actions tab.
   workflow_dispatch:
-env:
-  ENV: ${{ vars.ENV }}
-  UI_USERNAME: ${{ secrets.UI_USERNAME }}
-  UI_PASSWORD: ${{ secrets.UI_PASSWORD }}
 
 jobs:
   test:
@@ -16,7 +12,7 @@ jobs:
     steps:
       # Step 1: Checkout the code.
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Step 2: Build the Docker image.
       - name: Build Docker Image
