@@ -13,9 +13,8 @@ RUN npm ci
 # Copy the application code from the host to the container's working directory.
 COPY . .
 
-# Install Chrome browser for use with Playwright
-# RUN npx playwright install chrome
-# NOTE: Pre-installed Playwright dependencies and browsers (Chromium, Firefox, WebKit).
+# Install Chrome browser for use with Playwright.
+RUN npx playwright install chrome
 
 # Here, we run the test script defined in package.json (npm run test:ui).
 CMD ["npm", "run", "test:ui"]
