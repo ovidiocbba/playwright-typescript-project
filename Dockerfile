@@ -1,5 +1,5 @@
 # Use the official Playwright base image with Node.js
-FROM mcr.microsoft.com/playwright:v1.39.0-focal
+FROM mcr.microsoft.com/playwright:v1.48.1-noble
 
 # Set the working directory inside the container to /app.
 WORKDIR /app
