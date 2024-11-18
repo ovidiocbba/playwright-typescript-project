@@ -14,7 +14,7 @@ RUN npm ci
 COPY . .
 
 # Install Chrome browser for use with Playwright.
-RUN npx playwright install chrome
+RUN npx playwright install chromium
 
 # Here, we run the test script defined in package.json (npm run test:ui).
 CMD ["npm", "run", "test:ui"]
