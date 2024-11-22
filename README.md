@@ -227,10 +227,10 @@ UI_USERNAME=*****
 UI_PASSWORD=*****
 ```
 
-Run all tests in headless mode (without a browser window):
+Run all tests using the Chrome browser:
 
 ```bash
-npx playwright test
+npm run test:ui:chrome
 ```
 
 Run a test case using a tag
@@ -365,11 +365,17 @@ npm run test:ui:allure
 </div>
 
 ### :bar_chart: Run Tests and Generate Allure Reports
-
-1. Run tests with the Allure reporter:
+#### Install
+1. Allure requires Java 8 or higher
+2. Use npm to install Allure CLI
+```bash
+npm install -g allure-commandline --save-dev
+```
+#### Run
+1. Run tests:
 
 ```bash
-npx playwright test --reporter=allure-playwright
+npm run test:ui:chrome
 ```
 
 2. Serve the Allure report:
