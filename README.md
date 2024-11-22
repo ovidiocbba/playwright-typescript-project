@@ -206,6 +206,12 @@ Install all the required dependencies using npm. This will install Playwright, T
 npm install
 ```
 
+Install `Chromium` and `Firefox` Playwright Browsers
+
+```bash
+npx playwright install chromium firefox
+```
+
 <div align="right">
     <b><a href="#table-of-contents">↥ Back to top</a></b>
 </div>
@@ -213,7 +219,13 @@ npm install
 ## :runner: Running the tests
 
 **IMPORTANT:** Please add the appropriate values for your `.env` file.
-For example: `ENV='test'`
+For example:
+
+```bash
+ENV=test
+UI_USERNAME=*****
+UI_PASSWORD=*****
+```
 
 Run all tests in headless mode (without a browser window):
 
