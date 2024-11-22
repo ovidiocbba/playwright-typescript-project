@@ -365,13 +365,18 @@ npm run test:ui:allure
 </div>
 
 ### :bar_chart: Run Tests and Generate Allure Reports
+
 #### Install
+
 1. Allure requires Java 8 or higher
 2. Use npm to install Allure CLI
+
 ```bash
 npm install -g allure-commandline --save-dev
 ```
+
 #### Run
+
 1. Run tests:
 
 ```bash
