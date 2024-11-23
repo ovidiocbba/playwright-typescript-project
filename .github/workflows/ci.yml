@@ -61,30 +61,17 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-    - name: Send Slack notification on success
-      if: success()
+    # 6. Send Slack notification
+    - name: Send Slack notification
+      if: always() # Ensure this step runs regardless of the test results
       uses: act10ns/slack@v1
-      with:
-        status: custom
-        fields: |
-          {
-            "title": "Regression Tests Status",
-            "value": "✅ *SUCCESS*\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\n[View Workflow](${{ github.run_url }})",
-            "short": false
-          }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-    - name: Send Slack notification on failure
-      if: failure()
-      uses: act10ns/slack@v1
       with:
         status: custom
         fields: |
           {
-            "title": "Regression Tests Status",
-            "value": "❌ *FAILURE*\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\n[View Workflow](${{ github.run_url }})",
+            "title": "Playwright Test Results",
+            "value": "Workflow: *${{ github.workflow }}*\nBranch: *${{ github.ref_name }}*\nStatus: *${{ job.status }}*\n[View Playwright Report](https://<your-gh-pages-url>/index.html)",
             "short": false
           }
-      env:
-         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
