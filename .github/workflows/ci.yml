@@ -61,12 +61,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      # Send Slack notification with html-reprt url once the tests are completed
-    - name: Send Slack notification
-      uses: rtCamp/action-slack-notify@v2
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_CHANNEL: "#playwright-test-reports"
-        SLACK_USERNAME: Playwright GitHub Actions
-        SLACK_MESSAGE: "Test results are available in [Artifacts section](${{ steps.artifact_link.outputs.artifact_url }}) as html-report."
+    # Send Slack notification with html-reprt url once the tests are completed
+    - uses: act10ns/slack@v1
       if: always()
+      with:
+        status: ${{ job.status }}
+        config: .github/config/slack.yml
