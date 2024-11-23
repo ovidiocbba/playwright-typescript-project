@@ -63,15 +63,15 @@ jobs:
 
     # 6. Send Slack notification
     - name: Send Slack notification
-      if: always() # Ensure this step runs regardless of the test results
-      uses: act10ns/slack@v1
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      uses: rtCamp/action-slack-notify@v2
       with:
-        status: custom
-        fields: |
-          {
-            "title": "Playwright Test Results",
-            "value": "Workflow: *${{ github.workflow }}*\nBranch: *${{ github.ref_name }}*\nStatus: *${{ job.status }}*\n[View Playwright Report](https://<your-gh-pages-url>/index.html)",
-            "short": false
-          }
+        status: ${{ job.status }}
+        slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+        message: |
+          *Playwright Test Results*
+          
+          Workflow: ${{ github.workflow }}
+          Branch: ${{ github.ref_name }}
+          Commit: ${{ github.sha }}
+          Status: ${{ job.status }}
+          Report: [View Playwright Report](https://<your-gh-pages-url>/index.html)
