@@ -61,10 +61,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-    # Send Slack notification with html-reprt url once the tests are completed
-    - uses: act10ns/slack@v1
-      if: always()
-      with:
-        status: ${{ job.status }}
-        config: .github/config/slack.yml
