@@ -12,6 +12,7 @@ env:
   ENV: ${{ vars.ENV }}
   UI_USERNAME: ${{ secrets.UI_USERNAME }}
   UI_PASSWORD: ${{ secrets.UI_PASSWORD }}
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 jobs:
   test:
