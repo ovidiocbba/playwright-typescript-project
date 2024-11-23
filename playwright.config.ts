@@ -1,9 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 import baseEnvUrl from './utils/environmentBaseUrl';
 import type { GitHubActionOptions } from '@estruyf/github-actions-reporter';
+import Config from './utils/config';
 
 require('dotenv').config();
-
+const CONFIG = Config.getInstance();
 const envConfig = {
   production: baseEnvUrl.production.home,
   staging: baseEnvUrl.staging.home,
@@ -40,6 +41,13 @@ export default defineConfig({
       },
     ],
     ['allure-playwright'],
+    [
+      './node_modules/playwright-slack-report/dist/src/SlackReporter.js',
+      {
+        slackWebHookUrl: CONFIG.slackWebhook,
+        sendResults: 'always', // 'always' , 'on-failure', 'off'
+      },
+    ],
   ],
 
   timeout: 20000, // Global timeout for each test, in milliseconds.
