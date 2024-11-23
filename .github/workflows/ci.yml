@@ -60,3 +60,31 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    - name: Send Slack notification on success
+      if: success()
+      uses: act10ns/slack@v1
+      with:
+        status: custom
+        fields: |
+          {
+            "title": "Regression Tests Status",
+            "value": "✅ *SUCCESS*\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\n[View Workflow](${{ github.run_url }})",
+            "short": false
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    - name: Send Slack notification on failure
+      if: failure()
+      uses: act10ns/slack@v1
+      with:
+        status: custom
+        fields: |
+          {
+            "title": "Regression Tests Status",
+            "value": "❌ *FAILURE*\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\n[View Workflow](${{ github.run_url }})",
+            "short": false
+          }
+      env:
+         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
