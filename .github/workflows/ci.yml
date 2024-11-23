@@ -65,7 +65,7 @@ jobs:
     - name: Send Slack notification
       uses: rtCamp/action-slack-notify@v2
       with:
-       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
        SLACK_CHANNEL: '#automation' 
        SLACK_USERNAME: 'GitHub Actions' 
        SLACK_ICON_EMOJI: ':robot_face:'
