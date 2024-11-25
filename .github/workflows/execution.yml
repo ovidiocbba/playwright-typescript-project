@@ -43,6 +43,7 @@ env:
   ENV: ${{ inputs.environment || 'test' }}
   UI_USERNAME: ${{ secrets.UI_USERNAME }}
   UI_PASSWORD: ${{ secrets.UI_PASSWORD }}
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
