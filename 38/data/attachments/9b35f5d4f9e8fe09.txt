@@ -1,1 +1,0 @@
-2024-11-24T02:24:28.667Z [info]: Starting the test
