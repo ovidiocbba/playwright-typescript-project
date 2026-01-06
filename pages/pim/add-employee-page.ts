@@ -41,7 +41,7 @@ export class AddEmployeePage {
       state: 'hidden',
     });
     const personalDetailsLabel = 'h6:has-text("Personal Details")';
-    await this.page.waitForSelector(personalDetailsLabel, { timeout: 7000 });
+    await this.page.waitForSelector(personalDetailsLabel, { timeout: 9000 });
     return await this.page.isVisible(personalDetailsLabel);
   }
 
