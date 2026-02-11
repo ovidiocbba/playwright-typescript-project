@@ -1,6 +1,7 @@
 {
   "name": "playwright-typescript-project",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "format": "prettier --write . | grep -v 'unchanged'",
@@ -18,7 +19,8 @@
     "test:ui:chrome:headless": "npx playwright test --project=chromium && npx playwright show-report",
     "test:ui:firefox": "npx playwright test --project=firefox --headed && npx playwright show-report",
     "test:ui:firefox:headless": "npx playwright test --project=firefox && npx playwright show-report",
-    "test:ui:allure": "npx playwright test --reporter=line,allure-playwright && allure generate ./allure-results -o ./allure-report --clean && allure open ./allure-report"
+    "test:ui:allure": "npx playwright test --reporter=line,allure-playwright && allure generate ./allure-results -o ./allure-report --clean && allure open ./allure-report",
+    "show-trace": "ts-node utils/show-trace.ts"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +29,7 @@
   "devDependencies": {
     "@estruyf/github-actions-reporter": "^1.9.2",
     "@playwright/test": "^1.48.2",
+    "@types/glob": "^8.1.0",
     "@types/node": "^22.8.6",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
     "@typescript-eslint/parser": "^8.13.0",
@@ -39,5 +42,8 @@
     "playwright-slack-report": "^1.1.89",
     "prettier": "^3.3.3",
     "winston": "^3.16.0"
+  },
+  "dependencies": {
+    "glob": "^13.0.2"
   }
 }

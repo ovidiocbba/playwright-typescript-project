@@ -91,6 +91,17 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
   npx playwright test --grep '@TC-0001' --project=chromium-slow --headed
   ```
 
+  **Video and Trace**
+
+  - **Video**: Always recorded in `chromium-slow` to watch the test run.
+  - **Trace**: Step-by-step record with screenshots, network events, and console logs.
+
+  **View the trace**
+
+    ```bash
+    npm run show-trace -- TC-0001
+    ```
+
 - **Inspector Mode for Debugging**: This feature allows developers to pause test execution and interactively debug tests using **Playwright's Inspector**.
 
   - **Step-by-step debugging**: Pause and inspect the test at any point, interact with the page, and review actions in real-time.
