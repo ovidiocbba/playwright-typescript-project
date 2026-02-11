@@ -95,6 +95,7 @@ export default defineConfig({
           mode: 'on', // Record video.
           size: { width: 1920, height: 1080 },
         },
+        trace: 'on', // Always record trace for debugging
         launchOptions: {
           slowMo: 1000, // Slow down actions by 1000ms.
         },
