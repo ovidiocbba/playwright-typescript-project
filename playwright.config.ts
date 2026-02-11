@@ -2,8 +2,8 @@ import { defineConfig, devices } from '@playwright/test';
 import baseEnvUrl from './utils/environmentBaseUrl';
 import type { GitHubActionOptions } from '@estruyf/github-actions-reporter';
 import Config from './utils/config';
+import 'dotenv/config';
 
-require('dotenv').config();
 const CONFIG = Config.getInstance();
 const envConfig = {
   production: baseEnvUrl.production.home,
@@ -21,12 +21,12 @@ const reporters: any[] = [
   ['json', { outputFile: 'results.json' }],
   [
     '@estruyf/github-actions-reporter',
-    <GitHubActionOptions>{
+    {
       title: 'Playwright with Typescript Project - Test Results',
       useDetails: false,
       showTags: false,
       showError: true,
-    },
+    } as GitHubActionOptions,
   ],
   ['allure-playwright'],
 ];

@@ -98,9 +98,9 @@ This project uses [Playwright](https://playwright.dev/docs/intro) and [TypeScrip
 
   **View the trace**
 
-    ```bash
-    npm run show-trace -- TC-0001
-    ```
+  ```bash
+  npm run show-trace -- TC-0001
+  ```
 
 - **Inspector Mode for Debugging**: This feature allows developers to pause test execution and interactively debug tests using **Playwright's Inspector**.
 
