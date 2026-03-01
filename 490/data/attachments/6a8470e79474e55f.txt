@@ -1,1 +1,0 @@
-2026-02-11T13:44:34.160Z [info]: Starting the test
