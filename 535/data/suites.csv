@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","14839","@TC-0003 Verify that an employee can be created","chromium","Thu Mar 26 03:43:15 UTC 2026","passed","Thu Mar 26 03:43:30 UTC 2026","PIM","pim/employee.spec.ts","",""
+"","11792","@TC-0004 Verify that an employee cannot be created when required fields are left empty","chromium","Thu Mar 26 03:43:30 UTC 2026","passed","Thu Mar 26 03:43:42 UTC 2026","PIM","pim/employee.spec.ts","",""
+"","4782","@TC-0002 Verify that a user receives an error message when attempting to log in with incorrect credentials","chromium","Thu Mar 26 03:43:11 UTC 2026","passed","Thu Mar 26 03:43:15 UTC 2026","Login Tests","login.spec.ts","",""
+"","4148","@TC-0001 Verify that a user can successfully log in with valid credentials","chromium","Thu Mar 26 03:43:06 UTC 2026","passed","Thu Mar 26 03:43:10 UTC 2026","Login Tests","login.spec.ts","",""
